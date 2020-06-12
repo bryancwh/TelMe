@@ -8,27 +8,27 @@ import IconButton from "@material-ui/core/IconButton";
 import SearchIcon from "@material-ui/icons/Search";
 import ClearIcon from "@material-ui/icons/Clear";
 
-const useStyles = makeStyles(theme => ({
+const useStyles = makeStyles((theme) => ({
   root: {
     display: "flex",
     [theme.breakpoints.down("xs")]: {
-      border: "1px solid gray"
-    }
+      border: "1px solid gray",
+    },
   },
   input: {
     marginLeft: theme.spacing(1),
-    flex: 1
+    flex: 1,
   },
   iconButton: {
-    margin: "1px"
+    margin: "1px",
   },
   form: {
-    width: "100%",
+    width: "50%",
     margin: theme.spacing(1),
     [theme.breakpoints.down("xs")]: {
-      margin: theme.spacing(1, 0)
-    }
-  }
+      margin: theme.spacing(1, 0),
+    },
+  },
 }));
 
 const Search = () => {
@@ -38,7 +38,7 @@ const Search = () => {
   const [clear, setClear] = useState(false);
   const classes = useStyles();
 
-  const handleSubmit = event => {
+  const handleSubmit = (event) => {
     event.preventDefault();
     history.push(`/products/?search=${value}`);
   };
@@ -63,7 +63,7 @@ const Search = () => {
           className={classes.input}
           placeholder="Search in products"
           value={value}
-          onChange={e => setValue(e.target.value)}
+          onChange={(e) => setValue(e.target.value)}
         />
         <IconButton className={classes.iconButton} onClick={handleSubmit}>
           <SearchIcon fontSize="small" />

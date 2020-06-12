@@ -2,12 +2,15 @@ import React from "react";
 import { Switch, Route, Redirect } from "react-router-dom";
 import { useTheme } from "@material-ui/core/styles";
 import useMediaQuery from "@material-ui/core/useMediaQuery";
+import Container from "@material-ui/core/Container";
 
 import AuthRoute from "./components/routes/AuthRoute";
 import ProtectedRoute from "./components/routes/ProtectedRoute";
 import Loading from "./components/loading/Loading";
 
 const Header = React.lazy(() => import("./components/layouts/Header"));
+
+const Footer = React.lazy(() => import("./components/layouts/Footer"));
 
 const MobileNavigation = React.lazy(() =>
   import(
@@ -81,7 +84,11 @@ const ProductsDetail = React.lazy(() =>
   )
 );
 
-const Index = () => <Redirect to="/products" />;
+const Home = React.lazy(() =>
+  import(/* webpackChunkName: "products" */ "./pages/homePages/Home")
+);
+
+const Index = () => <Redirect to="/home" />;
 
 const Routes = () => {
   const theme = useTheme();
@@ -89,45 +96,54 @@ const Routes = () => {
 
   return (
     <React.Suspense fallback={<Loading />}>
-      {!matches && <Header />}
+      <Container maxWidth="lg">{!matches && <Header />}</Container>
+      <div style={{ height: "40px" }}></div>
       <Loading inFetching />
-      <Switch>
-        <Route exact path="/" component={Index} />
-        <ProtectedRoute exact path="/logout" component={Logout} />
-        <AuthRoute exact path="/login" component={Login} />
-        <AuthRoute exact path="/register" component={Register} />
-        <AuthRoute exact path="/reset-password" component={ResetPassword} />
-        <AuthRoute
-          exact
-          path="/reset-password/:token"
-          component={ResetPasswordConfirm}
-        />
-        <ProtectedRoute
-          exact
-          path="/change-password"
-          component={ChangePassword}
-        />
-        <ProtectedRoute exact path="/profile" component={Profile} />
-        <ProtectedRoute
-          exact
-          path="/profile/personal-info"
-          component={PersonalInfo}
-        />
-        <ProtectedRoute
-          exact
-          path="/profile/personal-info/edit"
-          component={PersonalInfoEdit}
-        />
-        <ProtectedRoute exact path="/profile/addresses" component={Addresses} />
-        <ProtectedRoute
-          exact
-          path="/profile/favorite-products"
-          component={FavoriteProducts}
-        />
-        <Route exact path="/products" component={Products} />
-        <Route exact path="/products/:slug" component={ProductsDetail} />
-      </Switch>
+      <Container maxWidth="lg">
+        <Switch>
+          <Route exact path="/" component={Index} />
+          <ProtectedRoute exact path="/logout" component={Logout} />
+          <AuthRoute exact path="/login" component={Login} />
+          <AuthRoute exact path="/register" component={Register} />
+          <AuthRoute exact path="/reset-password" component={ResetPassword} />
+          <AuthRoute
+            exact
+            path="/reset-password/:token"
+            component={ResetPasswordConfirm}
+          />
+          <ProtectedRoute
+            exact
+            path="/change-password"
+            component={ChangePassword}
+          />
+          <ProtectedRoute exact path="/profile" component={Profile} />
+          <ProtectedRoute
+            exact
+            path="/profile/personal-info"
+            component={PersonalInfo}
+          />
+          <ProtectedRoute
+            exact
+            path="/profile/personal-info/edit"
+            component={PersonalInfoEdit}
+          />
+          <ProtectedRoute
+            exact
+            path="/profile/addresses"
+            component={Addresses}
+          />
+          <ProtectedRoute
+            exact
+            path="/profile/favorite-products"
+            component={FavoriteProducts}
+          />
+          <Route exact path="/products" component={Products} />
+          <Route exact path="/products/:slug" component={ProductsDetail} />
+          <Route exact path="/home" component={Home} />
+        </Switch>
+      </Container>
       <div style={{ height: "56px" }}></div>
+      {!matches && <Footer />}
       {matches && <MobileNavigation />}
     </React.Suspense>
   );

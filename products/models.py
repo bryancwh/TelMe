@@ -21,31 +21,36 @@ class Product(models.Model):
         ('Singtel', 'Singtel'),
         ('Starhub', 'Starhub'),
         ('M1', 'M1'),
-    )
-
-    CONTRACT = (
-        ('6 Months', '6 Months'),
-        ('1 Year', '1 Year'),
-        ('2 Years', '2 Years'),
-        ('More than 2 Years', 'More than 2 Years'),
+        ('Circles.Life', 'Circles.Life'),
+        ('CMLink', 'CMLink'),
+        ('MyRepublic', 'MyRepublic'),
+        ('giga!', 'giga!'),
+        ('redONE', 'redONE'),
+        ('GOMO', 'GOMO'),
+        ('Zero1', 'Zero1'),
+        ('VIVIFI', 'VIVIFI'),
+        ('TPG Mobile', 'TPG Mobile'),
+        ('Grid Mobile', 'GridMobile'),
     )
 
     title = models.CharField(max_length=120)
     slug = AutoSlugField(populate_from='title',
                          unique_with=['title'], unique=True)
-    price = models.DecimalField(max_digits=10, decimal_places=2)
     telco = models.CharField(max_length=200, null=True, choices=TELCO)
     category = models.CharField(max_length=200, null=True, choices=CATEGORY)
-    contract = models.CharField(max_length=20, null=True, choices=CONTRACT)
+    price = models.DecimalField(max_digits=10, decimal_places=2)
+    data = models.IntegerField()
+    call_time = models.IntegerField()
+    sms = models.IntegerField()
+    contract_length = models.DecimalField(max_digits=10, decimal_places=1)
     description = models.TextField()
-    #discount_price = models.DecimalField(
-    #    max_digits=10, decimal_places=2, blank=True, null=True)
+    created_at = models.DateTimeField(auto_now_add=True)
+
+    #discount_price = models.DecimalField(max_digits=10, decimal_places=2, blank=True, null=True)
     #sizes = models.ManyToManyField(Size)
     #colors = models.ManyToManyField('self', blank=True, related_name='colors')
-    active = models.BooleanField(default=True)
     #sale_count = models.IntegerField(default=0)
     #code = models.CharField(max_length=40, unique=True, editable=False)
-    created_at = models.DateTimeField(auto_now_add=True)
 
     #objects = ProductManager()
 

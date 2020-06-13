@@ -40,12 +40,15 @@ INSTALLED_APPS = [
     'rest_framework',
     'products.apps.ProductsConfig',
     'accounts.apps.AccountsConfig',
-    #'carts.apps.CartsConfig',
+    'home.apps.HomeConfig',
     'profiles.apps.ProfilesConfig',
-    #'orders.apps.OrdersConfig',
     'django_filters',
     'livereload',
     'django_rest_passwordreset',
+    #'carts.apps.CartsConfig',
+    #'orders.apps.OrdersConfig',
+
+
 ]
 
 MIDDLEWARE = [

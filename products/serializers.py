@@ -12,8 +12,9 @@ class ProductListSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Product
-        fields = ('id', 'slug', 'url', 'title', 'price', 'telco',
-                  'category', 'contract')
+        fields = ('id', 'slug', 'url', 'title', 'telco',
+                  'category', 'price', 'data', 'call_time',
+                  'sms', 'contract_length')
 
     #def get_available(self, obj):
     #   return obj.available

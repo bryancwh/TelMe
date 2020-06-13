@@ -10,6 +10,7 @@ urlpatterns = [
     path('api/auth/reset-password/', include('django_rest_passwordreset.urls')),
     path('api/user/', include('profiles.urls')),
     path('api/products/', include('products.urls')),
+    path('api/home/', include('home.urls')),
     path('service-worker.js', (TemplateView.as_view(template_name="static/service-worker.js",
                                                     content_type='application/javascript'))),
 ]

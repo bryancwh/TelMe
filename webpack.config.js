@@ -9,36 +9,46 @@ module.exports = {
   output: {
     filename: "[name].[contenthash].js",
     path: __dirname + "/dist/static",
-    publicPath: "/static/"
+    publicPath: "/static/",
   },
   module: {
     rules: [
       { test: /\.js$/, exclude: /node_modules/, loader: "babel-loader" },
       {
         test: /\.css$/i,
-        use: ["style-loader", "css-loader"]
-      }
-    ]
+        use: ["style-loader", "css-loader"],
+      },
+      {
+        test: /\.(jpg|png|svg)$/,
+        use: {
+          loader: "url-loader",
+          options: {
+            limit: 25000,
+          },
+        },
+      },
+    ],
   },
   resolve: {
     alias: {
       "@actions": __dirname + "/src/redux/actions",
       "@components": __dirname + "/src/components",
-      "@pages": __dirname + "/src/pages"
-    }
+      "@pages": __dirname + "/src/pages",
+      "@public": __dirname + "/public",
+    },
   },
   plugins: [
     new CleanWebpackPlugin(),
     new CompressionPlugin({
-      test: /\.js(\?.*)?$/i
+      test: /\.js(\?.*)?$/i,
     }),
     new HtmlWebpackPlugin({
       template: "index.html",
-      filename: __dirname + "/dist/index.html"
+      filename: __dirname + "/dist/index.html",
     }),
     new WorkboxPlugin.InjectManifest({
       swSrc: "./src/service-worker.js",
-      importWorkboxFrom: "local"
+      importWorkboxFrom: "local",
     }),
     new WebpackPwaManifest({
       name: "Ecommerce Web App",
@@ -50,9 +60,9 @@ module.exports = {
         {
           src: "./icon.png",
           destination: "icons",
-          sizes: [96, 128, 192, 256, 384, 512] // multiple sizes
-        }
-      ]
-    })
-  ]
+          sizes: [96, 128, 192, 256, 384, 512], // multiple sizes
+        },
+      ],
+    }),
+  ],
 };

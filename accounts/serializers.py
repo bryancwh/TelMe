@@ -9,15 +9,11 @@ User = get_user_model()
 
 
 class UserSerializer(serializers.ModelSerializer):
-    #cart_items_count = serializers.SerializerMethodField()
 
     class Meta:
         model = User
         exclude = ('password', 'is_admin', 'is_active')
         read_only_fields = ('last_login',)
-
-    #def get_cart_items_count(self, obj):
-    #    return obj.carts.get(ordered=False).items.count()
 
 
 class RegisterSerializer(serializers.ModelSerializer):
@@ -26,7 +22,7 @@ class RegisterSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = User
-        fields = ('first_name', 'last_name', 'password')
+        fields = ('first_name', 'last_name', 'email', 'password')
         extra_kwargs = {'password': {'write_only': True}}
 
     def create(self, validated_data):
@@ -38,26 +34,27 @@ class RegisterSerializer(serializers.ModelSerializer):
 
 
 class LoginSerializer(serializers.ModelSerializer):
-    email = serializers.CharField(validators=[
+    phone_number_or_email = serializers.CharField(validators=[
         RegexValidator(
             phone_number_or_email_reg,
-            message="email address."
+            message="Invalid phone number or email address."
         )
     ])
 
     class Meta:
         model = User
-        fields = ('id', 'email', 'password')
+        fields = ('id', 'phone_number_or_email', 'password')
         extra_kwargs = {'password': {'write_only': True}}
 
     def validate(self, data):
-        """Return user by email"""
+        """Return user by phone number or email"""
 
-        user = authenticate(
-            email=data['email'],
-            password=data['password']
-        )
-
+        if '@' in data['phone_number_or_email']:
+            user = authenticate(
+                email=data['phone_number_or_email'],
+                password=data['password']
+            )
+            
         if user:
             # Login user (set session)
             login(self.context.get('request'), user)

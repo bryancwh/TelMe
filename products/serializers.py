@@ -4,7 +4,6 @@ from .models import Product
 from profiles.models import FavoritesProducts
 
 class ProductListSerializer(serializers.ModelSerializer):
-    #available = serializers.SerializerMethodField()
     url = serializers.HyperlinkedIdentityField(
         view_name='product-detail',
         lookup_field='slug'
@@ -14,20 +13,12 @@ class ProductListSerializer(serializers.ModelSerializer):
         model = Product
         fields = ('id', 'slug', 'url', 'title', 'telco',
                   'category', 'price', 'data', 'call_time',
-                  'sms', 'contract_length')
-
-    #def get_available(self, obj):
-    #   return obj.available
+                  'sms', 'contract_length', 'description')
 
 
 class ProductDetailSerializer(serializers.ModelSerializer):
     is_favorite_product = serializers.SerializerMethodField()
-    #is_in_cart = serializers.SerializerMethodField()
     #discount_percent = serializers.SerializerMethodField()
-    #available = serializers.SerializerMethodField()
-    #colors = ColorSerializer(many=True)
-    #sizes = SizeSerializer(many=True)
-    #default_size = serializers.SerializerMethodField()
 
     class Meta:
         model = Product

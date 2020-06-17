@@ -2,7 +2,8 @@ import React from "react";
 
 import MyExpansionPanel from "@components/layouts/MyExpansionPanel";
 import PriceFilter from "./PriceFilter";
-import OnlyAvailable from "./OnlyAvailable";
+import DataFilter from "./DataFilter";
+import ContractFilter from "./ContractFilter";
 import SearchInResults from "./SearchInResults";
 import SubmittedFilters from "./SubmittedFilters";
 
@@ -11,10 +12,15 @@ const Filters = () => {
     <React.Fragment>
       <SubmittedFilters />
       <SearchInResults />
-      <OnlyAvailable />
-      <MyExpansionPanel title="Price range">
-        <PriceFilter />
-      </MyExpansionPanel>
+        <MyExpansionPanel title="Price range">
+          <PriceFilter />
+        </MyExpansionPanel>
+        <MyExpansionPanel title="Data range">
+          <DataFilter />
+        </MyExpansionPanel>
+        <MyExpansionPanel title="Contract Length range">
+          <ContractFilter />
+        </MyExpansionPanel>
     </React.Fragment>
   );
 };

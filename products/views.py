@@ -19,9 +19,6 @@ class ProductListView(ListAPIView):
 
     def get_queryset(self):
         queryset = Product.objects.all()
-        #available = self.request.query_params.get('available', None)
-        # if available is not None and available == 'true':
-        #    queryset = Product.objects.available_products()
         ordering = self.request.query_params.get('ordering', None)
         if ordering is not None and ordering == "max_data":
             queryset = queryset.order_by('-data') # ordering by 'most data'

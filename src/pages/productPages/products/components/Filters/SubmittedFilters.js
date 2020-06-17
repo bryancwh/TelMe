@@ -30,12 +30,12 @@ const useStyles = makeStyles(theme => ({
 
 const SubmittedFilters = () => {
   const { history, location } = useReactRouter();
-  const { available, min_price, max_price, search } = queryString.parse(
+  const { min_price, max_price, min_data, max_data, min_contract, max_contract, search } = queryString.parse(
     location.search
   );
   const classes = useStyles();
 
-  if (available || min_price || max_price || search) {
+  if (min_price || max_price || min_data || max_data || min_contract || max_contract ||  search) {
     return (
       <Paper className={classes.mb1}>
         <div className={classes.padding}>
@@ -53,17 +53,6 @@ const SubmittedFilters = () => {
           </Typography>
           <Divider />
         </div>
-        {available === "true" && (
-          <Button
-            onClick={() => history.push(removeQuery(location, "available"))}
-            className={classes.margin}
-            size="small"
-            variant="outlined"
-          >
-            Only available products
-            <CloseIcon fontSize="small" color="action" />
-          </Button>
-        )}
         {min_price && max_price && (
           <Button
             onClick={() =>
@@ -74,6 +63,32 @@ const SubmittedFilters = () => {
             variant="outlined"
           >
             from {min_price}$ to {max_price}$
+            <CloseIcon fontSize="small" color="action" />
+          </Button>
+        )}
+        {min_data && max_data && (
+          <Button
+            onClick={() =>
+              history.push(removeQuery(location, ["min_data", "max_data"]))
+            }
+            className={classes.margin}
+            size="small"
+            variant="outlined"
+          >
+            from {min_data}$ to {max_data}$
+            <CloseIcon fontSize="small" color="action" />
+          </Button>
+        )}
+        {min_contract && max_contract && (
+          <Button
+            onClick={() =>
+              history.push(removeQuery(location, ["min_contract", "max_contract"]))
+            }
+            className={classes.margin}
+            size="small"
+            variant="outlined"
+          >
+            from {min_contract}$ to {max_contract}$
             <CloseIcon fontSize="small" color="action" />
           </Button>
         )}

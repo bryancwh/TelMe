@@ -36,32 +36,32 @@ const Ordering = ({ location }) => {
       <Button
         size="small"
         component={Link}
-        to={appendQuery(location, { ordering: "max_price" })}
-        className={classes.button}
-        color="secondary"
-        variant={ordering === "max_price" ? "contained" : "outlined"}
-      >
-        expensivest
-      </Button>
-      <Button
-        size="small"
-        component={Link}
         to={appendQuery(location, { ordering: "min_price" })}
         className={classes.button}
         color="secondary"
         variant={ordering === "min_price" ? "contained" : "outlined"}
       >
-        cheapest
+        Cheapest
       </Button>
       <Button
         size="small"
         component={Link}
-        to={appendQuery(location, { ordering: "best_seller" })}
+        to={appendQuery(location, { ordering: "max_data" })}
         className={classes.button}
         color="secondary"
-        variant={ordering === "best_seller" ? "contained" : "outlined"}
+        variant={ordering === "max_data" ? "contained" : "outlined"}
       >
-        Bestselling
+        Most Data
+      </Button>
+      <Button
+        size="small"
+        component={Link}
+        to={appendQuery(location, { ordering: "min_contract" })}
+        className={classes.button}
+        color="secondary"
+        variant={ordering === "min_contract" ? "contained" : "outlined"}
+      >
+        Shortest Contract
       </Button>
     </Paper>
   );

@@ -44,16 +44,16 @@ const useStyles = makeStyles(theme => ({
   }
 }));
 
-const PriceFilter = () => {
+const DataFilter = () => {
   const { history, location } = useReactRouter();
-  const { max_price, min_price } = useSelector(state => state.products);
+  const { max_data, min_data } = useSelector(state => state.products);
   const [value, setValue] = React.useState([0, 0]);
   const classes = useStyles();
   const parsed = queryString.parse(location.search);
 
   useEffect(() => {
-    setValue([parsed.min_price || min_price, parsed.max_price || max_price]);
-  }, [parsed.min_price, parsed.max_price, min_price, max_price]);
+    setValue([parsed.min_data || min_data, parsed.max_data || max_data]);
+  }, [parsed.min_data, parsed.max_data, min_data, max_data]);
 
   const handleChange = (event, newValue) => {
     setValue(newValue);
@@ -62,7 +62,7 @@ const PriceFilter = () => {
   const handleSubmit = (event, value) => {
     if (value) {
       history.push(
-        appendQuery(location, { min_price: value[0], max_price: value[1] })
+        appendQuery(location, { min_data: value[0], max_data: value[1] })
       );
     }
   };
@@ -70,19 +70,19 @@ const PriceFilter = () => {
   return (
     <div className={classes.root}>
       <Slider
-        max={max_price}
-        min={min_price}
+        max={max_data}
+        min={min_data}
         value={value}
         onChange={handleChange}
         onChangeCommitted={handleSubmit}
         valueLabelDisplay="auto"
       />
       <Typography gutterBottom>
-        <span>from {value[0]}SGD</span>
-        <span style={{ float: "right" }}>to {value[1]}SGD</span>
+        <span>from {value[0]}GB</span>
+        <span style={{ float: "right" }}>to {value[1]}GB</span>
       </Typography>
     </div>
   );
 };
 
-export default PriceFilter;
+export default DataFilter;

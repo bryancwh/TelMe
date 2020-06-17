@@ -28,8 +28,6 @@ const PersonalInfo = () => {
   const {
     first_name,
     last_name,
-    phone_number,
-    national_code,
     email
   } = useSelector(state => state.auth.user);
   const classes = useStyles();
@@ -46,16 +44,8 @@ const PersonalInfo = () => {
             <Typography variant="h6">{first_name || "-"}</Typography>
           </Grid>
           <Grid item md={6} xs={12}>
-            <Typography variant="body1">Phone number:</Typography>
-            <Typography variant="h6">{phone_number || "-"}</Typography>
-          </Grid>
-          <Grid item md={6} xs={12}>
             <Typography variant="body1">Last name:</Typography>
             <Typography variant="h6">{last_name || "-"}</Typography>
-          </Grid>
-          <Grid item md={6} xs={12}>
-            <Typography variant="body1">National code:</Typography>
-            <Typography variant="h6">{national_code || "-"}</Typography>
           </Grid>
           <Grid item md={12}>
             <Typography variant="body1">Email:</Typography>

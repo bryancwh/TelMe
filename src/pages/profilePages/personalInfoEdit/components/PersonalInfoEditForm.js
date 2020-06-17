@@ -7,7 +7,7 @@ import LoadingButton from "@components/loading/LoadingButton";
 
 const PersonalInfoEditForm = props => {
   const {
-    values: { first_name, last_name, phone_number, national_code, email },
+    values: { first_name, last_name, email },
     errors,
     handleSubmit,
     handleChange,
@@ -42,29 +42,7 @@ const PersonalInfoEditForm = props => {
             value={last_name}
             onChange={handleChange}
           />
-        </Grid>
-        <Grid item md={6} xs={12}>
-          <TextField
-            name="phone_number"
-            label="Phone number"
-            fullWidth
-            helperText={errors.phone_number}
-            error={Boolean(errors.phone_number)}
-            value={phone_number}
-            onChange={handleChange}
-          />
-        </Grid>
-        <Grid item md={6} xs={12}>
-          <TextField
-            name="national_code"
-            label="National code"
-            fullWidth
-            helperText={errors.national_code}
-            error={Boolean(errors.national_code)}
-            value={national_code}
-            onChange={handleChange}
-          />
-        </Grid>
+        </Grid>      
         <Grid item md={6} xs={12}>
           <TextField
             name="email"

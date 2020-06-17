@@ -42,21 +42,6 @@ const Sidebar = ({ activeItem, children }) => {
           title="Your account"
         >
           <List style={{ width: "100%" }}>
-            <ListItemLink selected={activeItem === "profile"} to="/profile">
-              <ListItemIcon>
-                <PersonIcon />
-              </ListItemIcon>
-              <ListItemText primary="Profile" />
-            </ListItemLink>
-            <ListItemLink
-              selected={activeItem === "orders"}
-              to="/profile/orders"
-            >
-              <ListItemIcon>
-                <ShopingCartIcon color="action" />
-              </ListItemIcon>
-              <ListItemText primary="All orders" />
-            </ListItemLink>
             <ListItemLink
               selected={activeItem === "favProducts"}
               to="/profile/favorite-products"
@@ -65,15 +50,6 @@ const Sidebar = ({ activeItem, children }) => {
                 <StarIcon />
               </ListItemIcon>
               <ListItemText primary="Favorite Products" />
-            </ListItemLink>
-            <ListItemLink
-              selected={activeItem === "addresses"}
-              to="/profile/addresses"
-            >
-              <ListItemIcon>
-                <AddressIcon />
-              </ListItemIcon>
-              <ListItemText primary="Addresses" />
             </ListItemLink>
             <ListItemLink
               selected={activeItem === "personalInfo"}

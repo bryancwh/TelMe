@@ -1,7 +1,10 @@
 import React from "react";
 import Carousel from "react-material-ui-carousel";
 import autoBind from "auto-bind";
+
 import "../style/carousel.css";
+import m1apple from "@public/images/m1promo.jpg";
+import m1huawei from "@public/images/m1promo2.jpg";
 
 import {
   Card,
@@ -41,7 +44,7 @@ function Banner(props) {
     const media = (
       <Grid item xs={12 / totalItems} key={item.Name}>
         <CardMedia className="Media" image={item.Image} title={item.Name}>
-          <Typography className="MediaCaption">{item.Name}</Typography>
+          {/* <Typography className="MediaCaption">{item.Name}</Typography> */}
         </CardMedia>
       </Grid>
     );
@@ -68,17 +71,17 @@ function Banner(props) {
 
 const items = [
   {
-    Name: "Electronics",
-    Caption: "Electrify your friends!",
+    Name: "Mobile Plans",
+    Caption: "The latest deals!",
     contentPosition: "left",
     Items: [
       {
-        Name: "Macbook Pro",
-        Image: "https://source.unsplash.com/featured/?macbook",
+        Name: "M1 iPhone 11 Pro Max",
+        Image: m1apple,
       },
       {
-        Name: "iPhone",
-        Image: "https://source.unsplash.com/featured/?iphone",
+        Name: "M1 HuaWei nova 7 SE",
+        Image: m1huawei,
       },
     ],
   },

@@ -9,14 +9,14 @@ import Pagination from "./components/Pagination";
 import Ordering from "./components/Ordering";
 import Filters from "./components/Filters";
 
-const useStyles = makeStyles(theme => ({
+const useStyles = makeStyles((theme) => ({
   root: {
-    marginTop: theme.spacing(1)
-  }
+    marginTop: theme.spacing(1),
+  },
 }));
 
 const Products = ({ history, location }) => {
-  const products = useSelector(state => state.products.products);
+  const products = useSelector((state) => state.products.products);
   const classes = useStyles();
   const dispatch = useDispatch();
 
@@ -32,8 +32,8 @@ const Products = ({ history, location }) => {
       <Grid item md xs={12}>
         <Ordering location={location} />
         <Grid container spacing={1}>
-          {products.map(product => (
-            <Grid key={product.id} item md={3} xs={12}>
+          {products.map((product) => (
+            <Grid key={product.id} item md={4} xs={12}>
               <ProductItem product={product} history={history} />
             </Grid>
           ))}

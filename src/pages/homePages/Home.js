@@ -6,6 +6,7 @@ import Container from "@material-ui/core/Container";
 import GitHubIcon from "@material-ui/icons/GitHub";
 import FacebookIcon from "@material-ui/icons/Facebook";
 import TwitterIcon from "@material-ui/icons/Twitter";
+
 import MainFeaturedPost from "./components/MainFeaturedPost";
 import FeaturedPost from "./components/FeaturedPost";
 import ReviewCarousel from "./components/ReviewCarousel";
@@ -55,8 +56,10 @@ export default function Home() {
       <CssBaseline />
       <Container maxWidth="lg">
         <main>
-          <ReviewCarousel />
           <MainFeaturedPost />
+          <h2>Featured</h2>
+          <ReviewCarousel />
+
           <h2>Plans you should look out for</h2>
           <Grid container spacing={4}>
             <FeaturedPost />

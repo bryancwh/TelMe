@@ -5,6 +5,7 @@ import Paper from "@material-ui/core/Paper";
 import Typography from "@material-ui/core/Typography";
 import Grid from "@material-ui/core/Grid";
 import Link from "@material-ui/core/Link";
+import Button from "@material-ui/core/Button";
 
 import banner from "@public/images/MainBanner.jpg";
 
@@ -43,14 +44,12 @@ export default function MainFeaturedPost(props) {
   return (
     <Paper
       className={classes.mainFeaturedPost}
-      style={
-        {
-          /*backgroundImage: `url(${post.image})`*/
-        }
-      }
+      style={{
+        backgroundImage: banner,
+      }}
     >
       {/* Increase the priority of the hero background image */}
-      {<img style={{ display: "none" }} alt="Placeholder img" />}
+      {<img style={{ display: "none" }} alt="Placeholder img" src={banner} />}
       <div className={classes.overlay} />
       <Grid container>
         <Grid item md={6}>
@@ -61,14 +60,15 @@ export default function MainFeaturedPost(props) {
               color="inherit"
               gutterBottom
             >
-              Welcome to our website
+              Welcome to TelMe
             </Typography>
             <Typography variant="h5" color="inherit" paragraph>
-              Search for your plan
+              TelMe exists to ease the customer experience of choosing a telco
+              plan when it's time to recontract.
             </Typography>
-            <Link variant="subtitle1" href="#">
+            <Button variant="contained" color="primary" href="/products">
               Get Started!
-            </Link>
+            </Button>
           </div>
         </Grid>
       </Grid>

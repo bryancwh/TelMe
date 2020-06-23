@@ -12,15 +12,15 @@ const Filters = () => {
     <React.Fragment>
       <SubmittedFilters />
       <SearchInResults />
-        <MyExpansionPanel title="Price range">
-          <PriceFilter />
-        </MyExpansionPanel>
-        <MyExpansionPanel title="Data range">
-          <DataFilter />
-        </MyExpansionPanel>
-        <MyExpansionPanel title="Contract Length range">
-          <ContractFilter />
-        </MyExpansionPanel>
+      <MyExpansionPanel title="Price range">
+        <PriceFilter />
+      </MyExpansionPanel>
+      <MyExpansionPanel title="Data range">
+        <DataFilter />
+      </MyExpansionPanel>
+      <MyExpansionPanel title="Contract Length range">
+        <ContractFilter />
+      </MyExpansionPanel>
     </React.Fragment>
   );
 };

@@ -1,5 +1,5 @@
 from django.contrib.auth import get_user_model
-from django.shortcuts import get_object_or_404
+from django.shortcuts import get_object_or_404, render
 from rest_framework.generics import RetrieveUpdateAPIView
 from rest_framework.permissions import IsAuthenticated
 from rest_framework.viewsets import ModelViewSet
@@ -7,13 +7,19 @@ from rest_framework.views import APIView
 from rest_framework.response import Response
 from rest_framework.status import HTTP_404_NOT_FOUND
 
-
 from accounts.serializers import UserSerializer
-#from .serializers import AddressSerializer
-from .models import FavoritesProducts
+from .models import FavoritesProducts, Cluster
 from products.models import Product
 from products.serializers import ProductListSerializer, ProductDetailSerializer
 
+#Needs merge with above
+from django.http import HttpResponseRedirect
+from django.urls import reverse
+from .suggestions import update_clusters
+
+import datetime
+
+from django.contrib.auth.decorators import login_required
 
 User = get_user_model()
 
@@ -25,17 +31,6 @@ class UserView(RetrieveUpdateAPIView):
 
     def get_object(self):
         return self.request.user
-
-
-#class AddressViewSet(ModelViewSet):
-#    serializer_class = AddressSerializer
-#    permission_classes = (IsAuthenticated,)
-
-#    def get_queryset(self):
-#        return Address.objects.all().filter(user=self.request.user)
-
-#    def perform_create(self, serailizer):
-#        serailizer.save(user=self.request.user)
 
 
 class FavoritesProductsView(APIView):

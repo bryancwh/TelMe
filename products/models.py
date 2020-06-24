@@ -2,6 +2,9 @@ from django.db import models
 from autoslug import AutoSlugField
 from web.utils import id_generator
 
+from django.contrib.auth.models import User
+
+
 class ProductManager(models.Manager):
     def all(self):
         return self.filter(active=True)

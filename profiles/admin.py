@@ -25,10 +25,4 @@ from .models import FavoritesProducts
 
 @admin.register(FavoritesProducts)
 class FavoritesProductsAdmin(admin.ModelAdmin):
-    list_display = ('id', 'user', 'products_count')
-    list_display_links = ('id', 'user')
-    list_filter = ('products__title',)
-    list_per_page = 25
-    search_fields = (
-        'user__phone_number', 'user__email', 'products__title'
-    )
+    list_display = ('id', 'user', 'product')

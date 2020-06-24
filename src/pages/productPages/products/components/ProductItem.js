@@ -1,27 +1,27 @@
 import React from "react";
+import { useDispatch, useSelector } from "react-redux";
 import clsx from "clsx";
 import { makeStyles } from "@material-ui/core/styles";
 import Card from "@material-ui/core/Card";
 import CardContent from "@material-ui/core/CardContent";
-import CardMedia from "@material-ui/core/CardMedia";
 import Typography from "@material-ui/core/Typography";
 import CardHeader from "@material-ui/core/CardHeader";
 import CardActions from "@material-ui/core/CardActions";
 import Collapse from "@material-ui/core/Collapse";
 import Avatar from "@material-ui/core/Avatar";
 import IconButton from "@material-ui/core/IconButton";
-import Button from "@material-ui/core/Button";
-import ButtonGroup from "@material-ui/core/ButtonGroup";
 import { red } from "@material-ui/core/colors";
 import FavoriteIcon from "@material-ui/icons/Favorite";
-import ShareIcon from "@material-ui/icons/Share";
+import FavoriteBorderIcon from "@material-ui/icons/FavoriteBorder";
 import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
 import MoreVertIcon from "@material-ui/icons/MoreVert";
-import grid from "@material-ui/core/grid";
+import Grid from "@material-ui/core/grid";
 import Tooltip from "@material-ui/core/Tooltip";
-import Box from "@material-ui/core/Box";
+import Paper from "@material-ui/core/Paper";
 
 import { Rating } from "@material-ui/lab";
+
+import { updateFavoriteProducts } from "@actions/profileActions/FavoriteProductsActions";
 
 import singtel from "../../../../../public/images/singtel.jpg";
 import starhub from "../../../../../public/images/starhub.jpg";
@@ -50,16 +50,14 @@ const useStyles = makeStyles((theme) => ({
   avatar: {
     backgroundColor: red[500],
   },
-  info: {
-    paddingBottom: "16px",
+  top: {
+    paddingTop: "5px",
   },
-  multi: {
-    display: "flex",
-    flexDirection: "column",
-    alignItems: "center",
-    "& > *": {
-      margin: theme.spacing(1),
-    },
+  bottom: {
+    paddingBottom: "5px",
+  },
+  info: {
+    paddingBottom: "15px",
   },
 }));
 
@@ -82,9 +80,17 @@ function TelcoRating() {
 const ProductItem = ({ product, history }) => {
   const classes = useStyles();
   const [expanded, setExpanded] = React.useState(false);
-
+  const isAuthenticated = useSelector((state) => state.auth.isAuthenticated);
   const handleExpandClick = () => {
     setExpanded(!expanded);
+  };
+
+  const handleAddToFavProducts = () => {
+    if (isAuthenticated) {
+      dispatch(updateFavoriteProducts(product.id));
+      return;
+    }
+    history.push("/login");
   };
 
   const getTelcoIconImage = (telco) => {
@@ -127,26 +133,74 @@ const ProductItem = ({ product, history }) => {
       />
       <CardContent>
         <div className={classes.multi}>
-          <ButtonGroup className={classes.info}>
-            <Button variant="contained" disabled>
-              <Typography variant="body2" color="textSecondary" component="p">
-                Data{"\n"}
-              </Typography>
-              {product.data}GB
-            </Button>
-            <Button variant="contained" disabled>
-              <Typography variant="body2" color="textSecondary" component="p">
-                SMS{"\n"}
-              </Typography>
-              {product.sms}
-            </Button>
-            <Button variant="contained" disabled>
-              <Typography variant="body2" color="textSecondary" component="p">
-                Call Time
-              </Typography>
-              {product.call_time + " mins"}
-            </Button>
-          </ButtonGroup>
+          <Grid container spacing={1} className={classes.info}>
+            <Grid item md={4}>
+              <Paper variant="outlined">
+                <Typography
+                  variant="body2"
+                  color="textSecondary"
+                  component="p"
+                  align="center"
+                  className={classes.top}
+                >
+                  Data
+                </Typography>
+                <Typography
+                  variant="body2"
+                  color="textSecondary"
+                  component="p"
+                  align="center"
+                  className={classes.bottom}
+                >
+                  {product.data}GB
+                </Typography>
+              </Paper>
+            </Grid>
+            <Grid item md={4}>
+              <Paper variant="outlined">
+                <Typography
+                  variant="body2"
+                  color="textSecondary"
+                  component="p"
+                  align="center"
+                  className={classes.top}
+                >
+                  SMS{"\n"}
+                </Typography>
+                <Typography
+                  variant="body2"
+                  color="textSecondary"
+                  component="p"
+                  align="center"
+                  className={classes.bottom}
+                >
+                  {product.sms}
+                </Typography>
+              </Paper>
+            </Grid>
+            <Grid item md={4}>
+              <Paper variant="outlined">
+                <Typography
+                  variant="body2"
+                  color="textSecondary"
+                  component="p"
+                  align="center"
+                  className={classes.top}
+                >
+                  Call Time
+                </Typography>
+                <Typography
+                  variant="body2"
+                  color="textSecondary"
+                  component="p"
+                  align="center"
+                  className={classes.bottom}
+                >
+                  {product.call_time + " mins"}
+                </Typography>
+              </Paper>
+            </Grid>
+          </Grid>
         </div>
         <Typography
           gutterBottom
@@ -169,13 +223,13 @@ const ProductItem = ({ product, history }) => {
         </Typography>
       </CardContent>
       <CardActions disableSpacing>
-        <IconButton aria-label="add to favorites">
-          {/* this is for the favourites function */}
-          <FavoriteIcon />
+        <IconButton onClick={handleAddToFavProducts} color="secondary">
+          {product.is_favorite_product === false ? (
+            <FavoriteBorderIcon />
+          ) : (
+            <FavoriteIcon />
+          )}
         </IconButton>
-        {/* <IconButton aria-label="share">
-          <ShareIcon />
-        </IconButton> */}
         <IconButton
           className={clsx(classes.expand, {
             [classes.expandOpen]: expanded,

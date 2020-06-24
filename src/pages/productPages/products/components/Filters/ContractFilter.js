@@ -8,10 +8,10 @@ import MUISlider from "@material-ui/core/Slider";
 
 import { appendQuery } from "./utils";
 
-const Slider = withStyles(theme => ({
+const Slider = withStyles((theme) => ({
   root: {
     color: theme.palette.secondary.main,
-    height: 8
+    height: 8,
   },
   thumb: {
     height: 24,
@@ -21,38 +21,41 @@ const Slider = withStyles(theme => ({
     marginTop: -8,
     marginLeft: -12,
     "&:focus,&:hover,&$active": {
-      boxShadow: "inherit"
-    }
+      boxShadow: "inherit",
+    },
   },
   active: {},
   valueLabel: {
-    left: "calc(-50% + 4px)"
+    left: "calc(-50% + 4px)",
   },
   track: {
     height: 8,
-    borderRadius: 4
+    borderRadius: 4,
   },
   rail: {
     height: 8,
-    borderRadius: 4
-  }
+    borderRadius: 4,
+  },
 }))(MUISlider);
 
-const useStyles = makeStyles(theme => ({
+const useStyles = makeStyles((theme) => ({
   root: {
-    width: 300 + theme.spacing(3) * 2
-  }
+    width: 300 + theme.spacing(3) * 2,
+  },
 }));
 
 const ContractFilter = () => {
   const { history, location } = useReactRouter();
-  const { max_contract, min_contract } = useSelector(state => state.products);
+  const { max_contract, min_contract } = useSelector((state) => state.products);
   const [value, setValue] = React.useState([0, 0]);
   const classes = useStyles();
   const parsed = queryString.parse(location.search);
 
   useEffect(() => {
-    setValue([parsed.min_contract || min_contract, parsed.max_contract || max_contract]);
+    setValue([
+      parsed.min_contract || min_contract,
+      parsed.max_contract || max_contract,
+    ]);
   }, [parsed.min_contract, parsed.max_contract, min_contract, max_contract]);
 
   const handleChange = (event, newValue) => {
@@ -62,7 +65,10 @@ const ContractFilter = () => {
   const handleSubmit = (event, value) => {
     if (value) {
       history.push(
-        appendQuery(location, { min_contract: value[0], max_contract: value[1] })
+        appendQuery(location, {
+          min_contract: value[0],
+          max_contract: value[1],
+        })
       );
     }
   };
@@ -78,8 +84,8 @@ const ContractFilter = () => {
         valueLabelDisplay="auto"
       />
       <Typography gutterBottom>
-        <span>from {value[0]}mos.</span>
-        <span style={{ float: "right" }}>to {value[1]}mos.</span>
+        <span>from {value[0]} months</span>
+        <span style={{ float: "right" }}>to {value[1]} months</span>
       </Typography>
     </div>
   );

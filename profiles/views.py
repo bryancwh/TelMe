@@ -58,6 +58,8 @@ class UpdateFavoritesProductsView(APIView):
             obj.products.remove(product)
         else:
             obj.products.add(product)
-        product = ProductDetailSerializer(
+        # product = ProductDetailSerializer(
+        #     product, context={'request': request})
+        product = ProductListSerializer(
             product, context={'request': request})
         return Response(product.data)

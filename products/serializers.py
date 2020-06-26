@@ -13,46 +13,26 @@ class ProductListSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Product
-        # fields = ('id', 'slug', 'url', 'title', 'telco',
-        #           'category', 'price', 'data', 'call_time',
-        #           'sms', 'contract_length', 'description')
         fields = '__all__'
 
     def get_is_favorite_product(self, obj):
         user = self.context.get('request').user
         if user.is_authenticated:
-            return FavoritesProducts.objects.check_product(user, obj.id)
-        return False
+            return FavoritesProducts.objects.check_product(user, obj)
+        else:
+            return False
+        
 
 
 class ProductDetailSerializer(serializers.ModelSerializer):
     is_favorite_product = serializers.SerializerMethodField()
-    # discount_percent = serializers.SerializerMethodField()
 
     class Meta:
         model = Product
         fields = '__all__'
 
-    # def get_default_size(self, obj):
-    #    sizes = obj.sizes.available_sizes()
-    #    if not sizes.exists():
-    #        return
-    #    return sizes.first().id
-
-    # def get_available(self, obj):
-    #    return obj.available
-
-    # def get_discount_percent(self, obj):
-    #    return obj.discount_percent
-
     def get_is_favorite_product(self, obj):
         user = self.context.get('request').user
         if user.is_authenticated:
-            return FavoritesProducts.objects.check_product(user, obj.id)
+            return FavoritesProducts.objects.check_product(user, obj)
         return False
-
-    # def get_is_in_cart(self, obj):
-    #    user = self.context.get('request').user
-    #    if user.is_authenticated:
-    #        return user.carts.get(ordered=False).items.filter(product=obj.id).exists()
-    #    return False

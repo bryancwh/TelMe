@@ -8,17 +8,17 @@ from products.models import Product
 
 User = get_user_model()
 
-#class FavoritesProductsManager(models.Manager):
-#    def check_product(self, user, product_id):
-#        if user.is_authenticated:
-#            return user.favorite_products.products.filter(id=product_id).exists()
+class FavoritesProductsManager(models.Manager):
+    def check_product(self, user, product):
+        if user.is_authenticated:
+            return FavoritesProducts.objects.filter(user=user, product=product).exists()
 
 
 class FavoritesProducts(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE, blank=True, null=True)
     product = models.ForeignKey(Product, on_delete=models.CASCADE, blank=True, null=True)
 
-#    objects = FavoritesProductsManager()
+    objects = FavoritesProductsManager()
 
     class Meta:
         verbose_name_plural = 'Favorites Products'
@@ -26,7 +26,7 @@ class FavoritesProducts(models.Model):
     def __str__(self):
         return self.user.username
 
-
+#Old version:
 #@receiver(post_save, sender=User)
 #def create_favorite_products(sender, instance, created, **kwargs):
 #    if created:

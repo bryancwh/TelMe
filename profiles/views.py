@@ -38,9 +38,15 @@ class FavoritesProductsView(APIView):
 
     def get(self, request):
         user = request.user
-        qs = FavoritesProducts.objects.filter(user=request.user)
+
+        #super inefficient way of querying lol
+        helper = []
+        qs = FavoritesProducts.objects.filter(user=user)
+        for i in qs:
+            helper.append(i.product)
+        
         products = ProductListSerializer(
-            qs, context={'request': request}, many=True).data
+            helper, context={'request': request}, many=True).data
         return Response(products)
 
 
@@ -58,7 +64,7 @@ class UpdateFavoritesProductsView(APIView):
         user = request.user
         product = get_object_or_404(Product, id=id)
 
-        if not already_favorited_product(request.user, id):
+        if not FavoritesProducts.objects.filter(user=user, product=product).exists():
             FavoritesProducts.objects.create(user=request.user, product=product)
         else:
             FavoritesProducts.objects.filter(user=request.user, product=product).delete()

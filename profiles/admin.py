@@ -9,4 +9,4 @@ class FavoritesProductsAdmin(admin.ModelAdmin):
 
 @admin.register(Cluster)
 class ClusterAdmin(admin.ModelAdmin):
-    list_display = ('name', 'users')
+    list_display = ('name', 'get_members')

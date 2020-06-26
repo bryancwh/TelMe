@@ -79,11 +79,13 @@ function TelcoRating() {
 
 const ProductItem = ({ product, history }) => {
   const classes = useStyles();
+  const dispatch = useDispatch();
   const [expanded, setExpanded] = React.useState(false);
   const isAuthenticated = useSelector((state) => state.auth.isAuthenticated);
   const handleExpandClick = () => {
     setExpanded(!expanded);
   };
+
 
   const handleAddToFavProducts = () => {
     if (isAuthenticated) {

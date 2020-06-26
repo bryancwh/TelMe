@@ -7,11 +7,13 @@ router = routers.DefaultRouter()
 #router.register('addresses', views.AddressViewSet, base_name='addresses')
 
 urlpatterns = [
-    path('', views.UserView.as_view(), name='user'),
-    path('favorites-products/',
-         views.FavoritesProductsView.as_view(), name='favorites-products'),
-    path('favorites-products/update/<int:id>/',
-         views.UpdateFavoritesProductsView.as_view(), name='update-favorites-products'),
+     path('', views.UserView.as_view(), name='user'),
+     path('favorites-products/',
+          views.FavoritesProductsView.as_view(), name='favorites-products'),
+     path('favorites-products/update/<int:id>/',
+          views.UpdateFavoritesProductsView.as_view(), name='update-favorites-products'),
+     path('recommended-products/',
+         views.RecommendedProductsView.as_view(), name='recommended-products'),
 ]
 
 urlpatterns += router.urls

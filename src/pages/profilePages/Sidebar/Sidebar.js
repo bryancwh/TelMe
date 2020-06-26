@@ -43,15 +43,6 @@ const Sidebar = ({ activeItem, children }) => {
         >
           <List style={{ width: "100%" }}>
             <ListItemLink
-              selected={activeItem === "favProducts"}
-              to="/profile/favorite-products"
-            >
-              <ListItemIcon>
-                <StarIcon />
-              </ListItemIcon>
-              <ListItemText primary="Favorite Products" />
-            </ListItemLink>
-            <ListItemLink
               selected={activeItem === "personalInfo"}
               to="/profile/personal-info"
             >
@@ -83,3 +74,14 @@ const Sidebar = ({ activeItem, children }) => {
 };
 
 export default Sidebar;
+
+// FOR FAVORITE PRODUCTS LIST 
+//<ListItemLink
+//selected={activeItem === "favProducts"}
+//to="/profile/favorite-products"
+//>
+//<ListItemIcon>
+//  <StarIcon />
+//</ListItemIcon>
+//<ListItemText primary="Favorite Products" />
+//</ListItemLink>

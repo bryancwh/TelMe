@@ -1,28 +1,12 @@
 from django.contrib import admin
 
-from .models import FavoritesProducts
-
-
-#@admin.register(Address)
-#class AddressAdmin(admin.ModelAdmin):
-#    date_hierarchy = 'created_at'
-#    list_display = ('id', 'user', 'reciver_full_name',
-#                    'address', 'postal_code', 'created_at')
-#    list_display_links = ('id', 'user')
-#    list_filter = ('user', 'state', 'city')
-#    list_per_page = 25
-#    search_fields = (
-#        'user__phone_number', 'user__email',
-#        'reciver_full_name', 'reciver_phone_number', 'state', 'city',
-#        'postal_address', 'postal_code'
-#    )
-#    readonly_fields = ('reciver_full_name', 'reciver_phone_number',
-#                       'state', 'city', 'postal_address', 'postal_code')
-
-#    def address(self, obj):
-#        return f"{obj.state}, {obj.city}, {obj.postal_address}"
+from .models import FavoritesProducts, Cluster
 
 
 @admin.register(FavoritesProducts)
 class FavoritesProductsAdmin(admin.ModelAdmin):
     list_display = ('id', 'user', 'product')
+
+@admin.register(Cluster)
+class ClusterAdmin(admin.ModelAdmin):
+    list_display = ('name', 'users')

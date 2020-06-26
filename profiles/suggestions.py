@@ -19,10 +19,8 @@ def update_clusters():
         for i in range(num_users): # each user corresponds to a row, in the order of all_user_names
             user_favorites = FavoritesProducts.objects.filter(user_name=all_user_names[i])
             for user_favorite in user_favorites:
-                #if favourite, give rating of 5,
-                ratings_m[i,user_favorite.product.id] = user_favorite.rating
-                #else give rating of 1. 
-# needs editing here
+                #As long as a user favourites a product, we take it that the rating is 5/5
+                ratings_m[i,user_favorite.product.id] = 5
 
         # Perform kmeans clustering
         k = int(num_users / 10) + 2

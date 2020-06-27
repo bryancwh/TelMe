@@ -86,7 +86,6 @@ const ProductItem = ({ product, history }) => {
     setExpanded(!expanded);
   };
 
-
   const handleAddToFavProducts = () => {
     if (isAuthenticated) {
       dispatch(updateFavoriteProducts(product.id));
@@ -220,9 +219,6 @@ const ProductItem = ({ product, history }) => {
         >
           {product.contract_length} years
         </Typography>
-        <Typography variant="body2" color="textSecondary" component="p">
-          {product.description}
-        </Typography>
       </CardContent>
       <CardActions disableSpacing>
         <IconButton onClick={handleAddToFavProducts} color="secondary">
@@ -246,13 +242,9 @@ const ProductItem = ({ product, history }) => {
       <Collapse in={expanded} timeout="auto" unmountOnExit>
         <CardContent>
           {/* this is for any additional info we may wanna add */}
-          <Typography paragraph>Additional Info:</Typography>
-          <Typography paragraph>Comes with a $60 voucher</Typography>
-          <Typography paragraph>
-            Customers who port over their number from another telco get $100 off
+          <Typography variant="body2" color="textSecondary" component="p">
+            {product.description}
           </Typography>
-          <Typography paragraph>bl bla bla</Typography>
-          <Typography>negative effects</Typography>
         </CardContent>
       </Collapse>
     </Card>

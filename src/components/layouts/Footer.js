@@ -4,10 +4,13 @@ import { makeStyles } from "@material-ui/core/styles";
 import Container from "@material-ui/core/Container";
 import Typography from "@material-ui/core/Typography";
 import Link from "@material-ui/core/Link";
+import GitHubIcon from "@material-ui/icons/GitHub";
+import FacebookIcon from "@material-ui/icons/Facebook";
+import TwitterIcon from "@material-ui/icons/Twitter";
 
 function Copyright() {
   return (
-    <Typography variant="body2" color="textSecondary" align="center">
+    <Typography variant="body2" color="textSecondary" align="left">
       {"Copyright © "}
       <Link color="inherit" href="https://material-ui.com/">
         TelMe
@@ -31,8 +34,8 @@ export default function Footer() {
 
   return (
     <footer className={classes.footer}>
-      <Container maxWidth="lg">
-        <Typography variant="h6" align="center" gutterBottom>
+      <Container>
+        {/* <Typography variant="h6" align="center" gutterBottom>
           Placeholder text
         </Typography>
         <Typography
@@ -42,7 +45,12 @@ export default function Footer() {
           component="p"
         >
           Hello hello hello
-        </Typography>
+        </Typography> */}
+        <Container align="right">
+          <GitHubIcon size="large" />
+          <FacebookIcon size="large" />
+          <TwitterIcon size="large" />
+        </Container>
         <Copyright />
       </Container>
     </footer>

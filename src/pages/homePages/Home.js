@@ -3,16 +3,10 @@ import { makeStyles } from "@material-ui/core/styles";
 import CssBaseline from "@material-ui/core/CssBaseline";
 import Grid from "@material-ui/core/Grid";
 import Container from "@material-ui/core/Container";
-import GitHubIcon from "@material-ui/icons/GitHub";
-import FacebookIcon from "@material-ui/icons/Facebook";
-import TwitterIcon from "@material-ui/icons/Twitter";
 
 import MainFeaturedPost from "./components/MainFeaturedPost";
 import FeaturedPost from "./components/FeaturedPost";
 import ReviewCarousel from "./components/ReviewCarousel";
-
-// import Main from "./Main";
-// import Footer from "./Footer";
 
 const useStyles = makeStyles((theme) => ({
   mainGrid: {
@@ -20,31 +14,28 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const mainFeaturedPost = {
-  title: "Title of a longer featured blog post",
-  description:
-    "Multiple lines of text that form the lede, informing new readers quickly and efficiently about what's most interesting in this post's contents.",
-  image: "https://source.unsplash.com/random",
-  imgText: "main image description",
-  linkText: "Continue reading…",
-};
-
+//these are hardcoded before the review feature is added in
 const featuredPosts = [
   {
-    title: "Featured post",
-    date: "Nov 12",
+    title: "Does Your Telco Have The Cheapest Data Roaming Plan?",
+    date: "22 Nov 2019",
     description:
-      "This is a wider card with supporting text below as a natural lead-in to additional content.",
-    image: "https://source.unsplash.com/random",
-    imageText: "Image Text",
+      "In this day and age, we all need to stay connected. And in order to do so, we all need mobile data." +
+      " Even if you’re not a social media addict, I’m sure you’ll still need to be able" +
+      " to contact someone while you’re miles away from home?" +
+      " And no, it’s not always possible to just rely on WiFi…",
+    link:
+      "https://blog.seedly.sg/data-roaming-travel-guide-singaporean-m1-singtel-starhub-circles-life-myrepublic?utm_source=product&utm_medium=banner&utm_campaign=experiment",
   },
   {
-    title: "Post title",
-    date: "Nov 11",
+    title: "Best (And Cheapest) Unlimited Data Mobile Plan In Singapore 2019",
+    date: "26 Apr 2019",
     description:
-      "This is a wider card with supporting text below as a natural lead-in to additional content.",
-    image: "https://source.unsplash.com/random",
-    imageText: "Image Text",
+      "After Circles.Life, Zero probably offers the next best-value," +
+      " unlimited data plan through the Zero Xs Unlimited Date ($39.95 per month)" +
+      " which comes with a 45GB cap for 4G data. If you want to get unlimited talktime and SMS," +
+      " it’ll cost you $10 more for the Zero X Unlimited Everything.",
+    link: "https://blog.seedly.sg/best-unlimited-data-mobile-plan-singapore/",
   },
 ];
 
@@ -60,10 +51,11 @@ export default function Home() {
           <h2>Featured</h2>
           <ReviewCarousel />
 
-          <h2>Plans you should look out for</h2>
+          <h2>Trending topics</h2>
           <Grid container spacing={4}>
-            <FeaturedPost />
-            <FeaturedPost />
+            {featuredPosts.map((post) => (
+              <FeaturedPost key={post.title} post={post} />
+            ))}
           </Grid>
           <Grid container spacing={5} className={classes.mainGrid}></Grid>
         </main>

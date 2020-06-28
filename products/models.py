@@ -9,7 +9,7 @@ class ProductManager(models.Manager):
     def all(self):
         return self.filter(active=True)
 
-    #def available_products(self):
+    # def available_products(self):
     #    return self.all().filter(sizes__available_count__gt=0).distinct()
 
 
@@ -42,10 +42,10 @@ class Product(models.Model):
     telco = models.CharField(max_length=200, null=True, choices=TELCO)
     category = models.CharField(max_length=200, null=True, choices=CATEGORY)
     price = models.DecimalField(max_digits=10, decimal_places=2)
-    data = models.IntegerField()
-    call_time = models.IntegerField()
-    sms = models.IntegerField()
-    contract_length = models.DecimalField(max_digits=10, decimal_places=1)
+    data = models.CharField(max_length=120)
+    call_time = models.CharField(max_length=120)
+    sms = models.CharField(max_length=120)
+    contract_length = models.CharField(max_length=120)
     description = models.TextField()
     created_at = models.DateTimeField(auto_now_add=True)
 
@@ -67,25 +67,25 @@ class Product(models.Model):
         self.code = id_generator()
         super(Product, self).save(*args, **kwargs)
 
-    #@property
-    #def available(self):
+    # @property
+    # def available(self):
     #    return self.active()
 
-    #@property
-    #def discount_percent(self):
+    # @property
+    # def discount_percent(self):
     #    if self.discount_price:
     #        discount_percent = 100 - (self.discount_price * 100) / self.price
     #        return int(discount_percent)
     #    return
 
-    #@property
-    #def final_price(self):
+    # @property
+    # def final_price(self):
     #    if self.discount_price:
     #        return self.discount_price
     #    return self.price
 
-    #@property
-    #def customer_profit(self):
+    # @property
+    # def customer_profit(self):
     #    if self.discount_price:
     #        return self.price - self.discount_price
     #    return 0

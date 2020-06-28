@@ -111,6 +111,23 @@ const ProductItem = ({ product, history }) => {
     }
   };
 
+  const getTelcoLink = (telco) => {
+    switch (telco) {
+      case "Singtel":
+        return "https://shop.singtel.com/plans";
+      case "Starhub":
+        return "https://www.starhub.com/personal/mobile.html#2year";
+      case "M1":
+        return "https://www.m1.com.sg/Mobile";
+      case "Circles.Life":
+        return "https://www.circles.life/sg/plans/";
+      case "MyRepublic":
+        return "#";
+      default:
+        break;
+    }
+  };
+
   return (
     <Card className={classes.root}>
       <CardHeader
@@ -124,7 +141,7 @@ const ProductItem = ({ product, history }) => {
         }
         action={
           <Tooltip title="Visit Site" arrow>
-            <IconButton aria-label="settings" href="#">
+            <IconButton aria-label="settings" href={getTelcoLink(product.telco)}>
               <MoreVertIcon />
             </IconButton>
           </Tooltip>
@@ -197,7 +214,7 @@ const ProductItem = ({ product, history }) => {
                   align="center"
                   className={classes.bottom}
                 >
-                  {product.call_time + " mins"}
+                  {product.call_time + "mins"}
                 </Typography>
               </Paper>
             </Grid>
@@ -217,7 +234,7 @@ const ProductItem = ({ product, history }) => {
           color="textSecondary"
           component="h2"
         >
-          {product.contract_length} years
+          {product.contract_length}
         </Typography>
       </CardContent>
       <CardActions disableSpacing>

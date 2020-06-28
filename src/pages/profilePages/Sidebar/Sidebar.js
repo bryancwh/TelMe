@@ -7,10 +7,9 @@ import ListItemIcon from "@material-ui/core/ListItemIcon";
 import ListItemText from "@material-ui/core/ListItemText";
 import Grid from "@material-ui/core/Grid";
 
-import ShopingCartIcon from "@material-ui/icons/ShoppingCartOutlined";
+
 import PersonIcon from "@material-ui/icons/PersonOutline";
 import StarIcon from "@material-ui/icons/StarBorder";
-import AddressIcon from "@material-ui/icons/RoomOutlined";
 import PersonalInfoIcon from "@material-ui/icons/PortraitOutlined";
 import ChangePasswordIcon from "@material-ui/icons/LockOutlined";
 import LogoutIcon from "@material-ui/icons/ExitToApp";
@@ -42,6 +41,7 @@ const Sidebar = ({ activeItem, children }) => {
           title="Your account"
         >
           <List style={{ width: "100%" }}>
+
             <ListItemLink
               selected={activeItem === "favProducts"}
               to="/profile/favorite-products"
@@ -50,7 +50,20 @@ const Sidebar = ({ activeItem, children }) => {
                 <StarIcon />
               </ListItemIcon>
               <ListItemText primary="Favorite Products" />
-              </ListItemLink>
+            </ListItemLink>
+
+
+            <ListItemLink
+              selected={activeItem === "recProducts"}
+              to="/profile/recommended-products"
+            >
+              <ListItemIcon>
+                <PersonIcon />
+              </ListItemIcon>
+              <ListItemText primary="Recommended Products" />
+            </ListItemLink>
+
+
             <ListItemLink
               selected={activeItem === "personalInfo"}
               to="/profile/personal-info"
@@ -60,18 +73,24 @@ const Sidebar = ({ activeItem, children }) => {
               </ListItemIcon>
               <ListItemText primary="Personal Info" />
             </ListItemLink>
+
+
             <ListItemLink to="/change-password">
               <ListItemIcon>
                 <ChangePasswordIcon />
               </ListItemIcon>
               <ListItemText primary="Change password" />
             </ListItemLink>
+
+
             <ListItemLink to="/logout">
               <ListItemIcon>
                 <LogoutIcon />
               </ListItemIcon>
               <ListItemText primary="Logout" />
             </ListItemLink>
+
+
           </List>
         </ExpansionPanel>
       </Grid>

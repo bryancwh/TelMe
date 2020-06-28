@@ -4,6 +4,7 @@ import {
   DELETE_ADDRESS,
   UPDATE_ADDRESS,
   FETCH_FAVORITE_PRODUCTS,
+  FETCH_RECOMMENDED_PRODUCTS,
   FETCH_ORDERS,
   FETCH_ORDER
 } from "../types";
@@ -11,6 +12,7 @@ import {
 const initialState = {
   addresses: [],
   favoriteProducts: [],
+  recommendedProducts: [],
   orders: { orders: [], order: {} }
 };
 
@@ -42,6 +44,8 @@ export default (state = initialState, action) => {
       };
     case FETCH_FAVORITE_PRODUCTS:
       return { ...state, favoriteProducts: payload };
+    case FETCH_RECOMMENDED_PRODUCTS:
+      return { ...state, recommendedProducts: payload };
     case FETCH_ORDERS:
       return { ...state, orders: { ...state.orders, orders: payload } };
     case FETCH_ORDER:

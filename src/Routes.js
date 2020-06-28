@@ -74,6 +74,12 @@ const FavoriteProducts = React.lazy(() =>
   )
 );
 
+const RecommendedProducts = React.lazy(() =>
+  import(
+    /* webpackChunkName: "recommended-products" */ "./pages/profilePages/recommendedProducts"
+  )
+);
+
 const Products = React.lazy(() =>
   import(/* webpackChunkName: "products" */ "./pages/productPages/products")
 );
@@ -136,6 +142,11 @@ const Routes = () => {
             exact
             path="/profile/favorite-products"
             component={FavoriteProducts}
+          />
+          <ProtectedRoute
+            exact
+            path="/profile/recommended-products"
+            component={RecommendedProducts}
           />
           <Route exact path="/products" component={Products} />
           <Route exact path="/products/:slug" component={ProductsDetail} />

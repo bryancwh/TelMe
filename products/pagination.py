@@ -16,6 +16,10 @@ class ProductPagination(PageNumberPagination):
 
         max_price = Product.objects.order_by('-price')[0].price
         min_price = Product.objects.order_by('price')[0].price
+        max_data = Product.objects.order_by('-data')[0].data
+        min_data = Product.objects.order_by('data')[0].data
+        max_contract = Product.objects.order_by('-contract_length')[0].contract_length
+        min_contract = Product.objects.order_by('contract_length')[0].contract_length
 
         return Response({
             'pages_count': self.page.paginator.num_pages,
@@ -23,6 +27,10 @@ class ProductPagination(PageNumberPagination):
             'ordering': self.request.GET.get('ordering'),
             'max_price': max_price,
             'min_price': min_price,
+            'max_data': max_data,
+            'min_data': min_data,
+            'max_contract': max_contract,
+            'min_contract': min_contract,
             'current': self.page.number,
             'next': next_page_query,
             'previous': previous_page_query,

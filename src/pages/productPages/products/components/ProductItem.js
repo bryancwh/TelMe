@@ -141,7 +141,7 @@ const ProductItem = ({ product, history }) => {
         }
         action={
           <Tooltip title="Visit Site" arrow>
-            <IconButton aria-label="settings" href={getTelcoLink(product.telco)}>
+            <IconButton aria-label="settings" onClick={() => window.open(getTelcoLink(product.telco), "_blank")}>
               <MoreVertIcon />
             </IconButton>
           </Tooltip>

@@ -6,7 +6,8 @@ import django.db.models.deletion
 
 
 class Migration(migrations.Migration):
-
+    atomic = False
+    
     dependencies = [
         ('products', '0005_auto_20200613_0718'),
         ('profiles', '0007_cluster'),

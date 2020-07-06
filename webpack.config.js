@@ -8,7 +8,7 @@ module.exports = {
   devtool: "cheap-module-source-map",
   output: {
     filename: "[name].[contenthash].js",
-    path: __dirname + "/staticfiles",
+    path: __dirname + "/dist/static",
     publicPath: "/static/",
   },
   module: {
@@ -44,7 +44,7 @@ module.exports = {
     }),
     new HtmlWebpackPlugin({
       template: "index.html",
-      filename: __dirname + "/index.html",
+      filename: __dirname + "/dist/index.html",
     }),
     new WorkboxPlugin.InjectManifest({
       swSrc: "./src/service-worker.js",

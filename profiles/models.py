@@ -40,7 +40,7 @@ class FavoritesProducts(models.Model):
 
 class Cluster(models.Model):
     name = models.CharField(max_length=100)
-    users = models.ManyToManyField(User)
+    users = models.ManyToManyField(User, blank=True)
 
     def get_members(self):
         return "\n".join([u.username for u in self.users.all()])

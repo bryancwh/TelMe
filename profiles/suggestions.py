@@ -1,11 +1,10 @@
 from .models import FavoritesProducts, Cluster
+from accounts.models import User
 from products.models import Product
 from django.contrib.auth import get_user_model
 from sklearn.cluster import KMeans
 from scipy.sparse import dok_matrix, csr_matrix
 import numpy as np
-
-User = get_user_model()
 
 def update_clusters():
     num_favorites = FavoritesProducts.objects.count()
@@ -35,3 +34,13 @@ def update_clusters():
             cluster.save()
         for i,cluster_label in enumerate(clustering.labels_):
             new_clusters[cluster_label].users.add(all_user[i])
+
+
+def update_clusters2():
+    all_user = User.objects.all()        
+    num_users = len(all_user)
+    k = int(num_users / 10) + 2
+    Cluster.objects.all().delete()
+    new_clusters = {i: Cluster(name=i) for i in range(k)}
+    for cluster in new_clusters.values(): # clusters need to be saved before refering to users
+        cluster.save()

@@ -8,6 +8,9 @@ import requests
 from bs4 import BeautifulSoup
 from products.models import Product
 
+#from django.core.mail import send_mail
+#from profiles.models import FavoritesProducts
+
 URL = 'https://www.starhub.com/personal/mobile.html'
 page = requests.get(URL)
 soup = BeautifulSoup(page.content, 'html.parser')
@@ -96,3 +99,19 @@ def add_starhub_products():
 if __name__ == '__main__':
     add_starhub_products()
     print('Done.')
+
+#  #check if the price of product has dropped
+#  if data['last_price'] < item.requested_price:
+#    #filter out users who have this product in their favorites list
+#    users = FavoritesProducts.objects.filter(product=item).only("user")
+#    
+#    #send email to each user
+#    for user in users:
+#        email_message = item + " in your Favorites List has dropped in price, go check it out now!"
+#        send_mail(
+#            'Price dropped, act now!',
+#            email_message,
+#            'TelMe <bryancwh98@gmail.com>',
+#            [user.email],
+#            fail_silently=False,
+#        )

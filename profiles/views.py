@@ -15,7 +15,7 @@ from products.serializers import ProductListSerializer, ProductDetailSerializer
 #Needs merge with above
 from django.http import HttpResponseRedirect
 from django.urls import reverse
-from .suggestions import update_clusters, update_clusters2
+from .suggestions import update_clusters
 
 import datetime
 
@@ -69,7 +69,7 @@ class UpdateFavoritesProductsView(APIView):
         else:
             FavoritesProducts.objects.filter(user=request.user, product=product).delete()
 
-        update_clusters2()
+        update_clusters()
 
         product = ProductListSerializer(
             product, context={'request': request})

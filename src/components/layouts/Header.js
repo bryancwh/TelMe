@@ -51,14 +51,15 @@ const Header = () => {
 
   const authNav = (
     <div className={classes.rightItems}>
+      <Button component={RouterLink} to="/profile/favorite-products" color="inherit">
+        Favorites
+      </Button>
+      <Button component={RouterLink} to="/profile/recommended-products" color="inherit">
+        Recommended
+      </Button>
       <IconButton component={RouterLink} to="/profile" color="inherit">
         <ProfileIcon />
       </IconButton>
-      {/* <IconButton component={RouterLink} to="/cart" color="inherit">
-        <Badge color="secondary" badgeContent={user && user.cart_items_count}>
-          <CartIcon />
-        </Badge>
-      </IconButton> */}
     </div>
   );
 

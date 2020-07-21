@@ -1,15 +1,9 @@
-import os
-import django
-
-os.environ.setdefault("DJANGO_SETTINGS_MODULE", "web.settings")
-django.setup()
-
 import requests
 from bs4 import BeautifulSoup
-from products.models import Product
 
-#from django.core.mail import send_mail
-#from profiles.models import FavoritesProducts
+starhub_all_plans = []
+
+from products.models import Product
 
 URL = 'https://www.starhub.com/personal/mobile.html'
 page = requests.get(URL)
@@ -17,7 +11,7 @@ soup = BeautifulSoup(page.content, 'html.parser')
 
 results = soup.find(class_='tab-content')
 narrow = results.find_all('div', class_='desktop-tile')
-contract_lengths = ["2 years", "1 year", "No contract"]
+contract_lengths = ["24", "12", "No contract"]
 
 
 def remove_text_inside_brackets(text, brackets="()"):
@@ -74,44 +68,37 @@ def add_starhub_products():
             telco = "Starhub"
             title = telco + " " + plan_name.text
             category = "Postpaid"
-            price = int(remove_text_inside_brackets(
-                plan_cost.text.replace('$', '')))
-            data = int(plan_data.text.replace('GB', ''))
-            call_time = remove_text_inside_brackets(
-                plan_calltime.text.replace(' outgoing mins', ''))
+            price = remove_text_inside_brackets(
+                plan_cost.text.replace('$', ''))
+            data = plan_data.text.replace('GB', '')
+            call_time = remove_text_inside_brackets(plan_calltime.text).replace(' outgoing mins', '').replace(',', '').replace(' \xa0', '')
             if plan_sms is not None:
                 sms = plan_sms.text.replace('SMS', '')
             else:
                 sms = 0
             contract_length = contract_lengths[pointer]
             description = ""
+
             for points in plan_desc_points:
-                description = description + points.text + "\n"
-            product = Product.objects.create(
-                title=title, telco=telco, category=category, price=price, data=data, call_time=call_time, sms=sms,
-                contract_length=contract_length, description=description,
-            )
-            product.save()
+                if description != "":
+                    description = description + ", " + points.text
+                else:
+                    description = points.text
+
+            plan_item = {
+                'telco': telco,
+                'title': title,
+                'category': category,
+                'price': price,
+                'data': data,
+                'call_time': call_time,
+                'sms': sms,
+                'contract_length': contract_length,
+                'description': description           
+            }
+
+            starhub_all_plans.append(plan_item)
+
         pointer = pointer + 1
 
 
-
-if __name__ == '__main__':
-    add_starhub_products()
-    print('Done.')
-
-#  #check if the price of product has dropped
-#  if data['last_price'] < item.requested_price:
-#    #filter out users who have this product in their favorites list
-#    users = FavoritesProducts.objects.filter(product=item).only("user")
-#    
-#    #send email to each user
-#    for user in users:
-#        email_message = item + " in your Favorites List has dropped in price, go check it out now!"
-#        send_mail(
-#            'Price dropped, act now!',
-#            email_message,
-#            'TelMe <bryancwh98@gmail.com>',
-#            [user.email],
-#            fail_silently=False,
-#        )

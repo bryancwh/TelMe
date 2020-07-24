@@ -44,6 +44,7 @@ INSTALLED_APPS = [
     'django_filters',
     'livereload',
     'django_rest_passwordreset',
+    'import_export' #To import and export data from admin
     #'carts.apps.CartsConfig',
     #'orders.apps.OrdersConfig',
 

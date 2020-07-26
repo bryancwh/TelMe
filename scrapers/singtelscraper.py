@@ -56,6 +56,8 @@ def add_singtel_products():
             talktime_sms = more_details.find('li', text=lambda t: t and "SMS" in t).text.split('& ')
             talktime = talktime_sms[0].replace(' Talktime ', '')
             sms = talktime_sms[1]
+            if sms == "SMS":
+                sms = "Unlimited"
             dets = more_details.find_all('li')
             for points in dets:
                 if details != "":

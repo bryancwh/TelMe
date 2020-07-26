@@ -42,10 +42,10 @@ class Product(models.Model):
     telco = models.CharField(max_length=200, null=True, choices=TELCO)
     category = models.CharField(max_length=200, null=True, choices=CATEGORY)
     price = models.DecimalField(max_digits=10, decimal_places=2)
-    data = models.CharField(max_length=120)
+    data = models.IntegerField()
     call_time = models.CharField(max_length=120)
     sms = models.CharField(max_length=120)
-    contract_length = models.CharField(max_length=120)
+    contract_length = models.IntegerField()
     description = models.TextField()
     created_at = models.DateTimeField(auto_now_add=True)
 

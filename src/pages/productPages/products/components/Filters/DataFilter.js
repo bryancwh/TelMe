@@ -10,7 +10,7 @@ import { appendQuery } from "./utils";
 
 const Slider = withStyles(theme => ({
   root: {
-    color: theme.palette.secondary.main,
+    color: "#2979ff",
     height: 8
   },
   thumb: {

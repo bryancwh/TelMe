@@ -30,10 +30,10 @@ const RecommendedProducts = ({ history }) => {
 
   return (
     <Sidebar activeItem="recProducts">
-      <div style={{ marginTop: "30px" }}>
+      <div style={{ marginTop: "8px" }}>
         <Grid container spacing={2}>
           {products.map(product => (
-            <Grid key={product.id} item md={3} xs={12}>
+            <Grid key={product.id} item md={4} xs={12}>
               <ProductItem product={product} history={history} />
             </Grid>
           ))}

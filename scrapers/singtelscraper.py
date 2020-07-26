@@ -40,7 +40,9 @@ def add_singtel_products():
             if contract_length is not None:
                 contract_length = contract_length.group(1)
                 if contract_length != "No Contract":
-                    contract_length = contract_length[:2]                
+                    contract_length = contract_length[:2]
+                else:
+                    contract_length = "0"                
             else:
                 contract_length = "24"
             

@@ -49,7 +49,7 @@ def add_m1_products():
         plan_item = {
                 'telco': telco,
                 'data': plan_data.text.replace('GB', ''),
-                'contract_length': "No Contract",
+                'contract_length': "0",
                 'title': telco + " " + plan_data.text + " " + "No Contract Plan",
                 'category': "Postpaid",
                 'price': plan_cost.text.replace('$', '').replace('/MTH', '').replace('/mth',''),
@@ -101,7 +101,7 @@ def add_m1_products():
         plan_item = {
                 'telco': telco,
                 'data': plan_data.text.replace('GB', ''),
-                'contract_length': "No Contract",
+                'contract_length': "24",
                 'title': telco + " " + plan_data.text + " " + "24 Month Plan",
                 'category': "Postpaid",
                 'price': plan_cost.text.replace('$', '').replace('/MTH', '').replace('/mth',''),

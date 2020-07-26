@@ -1,6 +1,6 @@
 from products.models import Product
 from scrapers.starhubscraper import starhub_all_plans
-#from scrapers.singtelscraper import singtel_all_plans
+from scrapers.singtelscraper import singtel_all_plans
 from scrapers.m1scraper import m1_all_plans
 from scrapers.myrepublicscraper import myrepublic_all_plans
 from scrapers.gigascraper import giga_all_plans
@@ -8,7 +8,7 @@ from scrapers.gigascraper import giga_all_plans
 all_plans = []
 
 def add_all_products():
-    all_plans = starhub_all_plans + m1_all_plans + myrepublic_all_plans + giga_all_plans
+    all_plans = starhub_all_plans + m1_all_plans + myrepublic_all_plans + giga_all_plans + singtel_all_plans
     # this can be used to test the price drop. it requires you to add the run the scrape without it first then run it with it.
     # plan_item = {
     #             'telco': "Starhub",
@@ -25,8 +25,8 @@ def add_all_products():
     for product in all_plans:
         if not Product.objects.filter(title=product['title']):
             product = Product.objects.create(
-                    title=product['title'], telco=product['telco'], category=product['category'], price=product['price'], data=product['data'], call_time=product['call_time'], sms=product['sms'],
-                    contract_length=product['contract_length'], description=product['description'],
+                    title=product['title'], telco=product['telco'], category=product['category'], price=product['price'], data=int(product['data']), call_time=product['call_time'], sms=product['sms'],
+                    contract_length=int(product['contract_length']), description=product['description'],
                 )
             product.save()
         else:

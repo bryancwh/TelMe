@@ -28,7 +28,7 @@ const Ordering = ({ location }) => {
         component={Link}
         to={removeQuery(location, "ordering")}
         className={classes.button}
-        color="secondary"
+        color="primary"
         variant={ordering === null ? "contained" : "outlined"}
       >
         Newest
@@ -38,7 +38,7 @@ const Ordering = ({ location }) => {
         component={Link}
         to={appendQuery(location, { ordering: "min_price" })}
         className={classes.button}
-        color="secondary"
+        color="primary"
         variant={ordering === "min_price" ? "contained" : "outlined"}
       >
         Cheapest
@@ -48,7 +48,7 @@ const Ordering = ({ location }) => {
         component={Link}
         to={appendQuery(location, { ordering: "max_data" })}
         className={classes.button}
-        color="secondary"
+        color="primary"
         variant={ordering === "max_data" ? "contained" : "outlined"}
       >
         Most Data
@@ -58,7 +58,7 @@ const Ordering = ({ location }) => {
         component={Link}
         to={appendQuery(location, { ordering: "min_contract" })}
         className={classes.button}
-        color="secondary"
+        color="primary"
         variant={ordering === "min_contract" ? "contained" : "outlined"}
       >
         Shortest Contract

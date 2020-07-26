@@ -11,7 +11,7 @@ soup = BeautifulSoup(page.content, 'html.parser')
 
 results = soup.find(class_='tab-content')
 narrow = results.find_all('div', class_='desktop-tile')
-contract_lengths = ["24", "12", "No contract"]
+contract_lengths = ["24", "12", "0"]
 
 
 def remove_text_inside_brackets(text, brackets="()"):

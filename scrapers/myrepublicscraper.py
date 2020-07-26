@@ -44,7 +44,7 @@ def add_myrepublic_products():
                 elif data and "GB" in data:
                     plan_data = data.replace(' GB', '')
                 else:
-                    plan_data = data
+                    plan_data = "999"
             elif words and "Talktime" in words:
                 plan_calltime = words.split(' Talktime')[0].replace(' Minutes', '')
             elif words and "SMS" in words:
@@ -62,8 +62,8 @@ def add_myrepublic_products():
         plan_item = {
                 'telco': telco,
                 'data': plan_data,
-                'contract_length': "No Contract",
-                'title': telco + " " + plan_name.text,
+                'contract_length': "0",
+                'title': telco + " No Contract " + plan_name.text,
                 'category': "Postpaid",
                 'price': plan_cost.text.replace('$', '').replace('/MTH', ''),
                 'call_time': plan_calltime,

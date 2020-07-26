@@ -28,6 +28,8 @@ import starhub from "../../../../../public/images/starhub.jpg";
 import m1 from "../../../../../public/images/m1.jpg";
 import circles from "../../../../../public/images/circles-life.png";
 import myrepublic from "../../../../../public/images/myrepublic.jpg";
+import giga from "../../../../../public/images/giga.jpg";
+
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -61,21 +63,21 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-function TelcoRating() {
-  const classes = useStyles();
-  const [value, setValue] = React.useState(2.5);
-  return (
-    <Rating
-      precision={0.1}
-      size="small"
-      name="simple-controlled"
-      value={value}
-      onChange={(event, newValue) => {
-        setValue(newValue);
-      }}
-    />
-  );
-}
+// function TelcoRating() {
+//   const classes = useStyles();
+//   const [value, setValue] = React.useState(2.5);
+//   return (
+//     <Rating
+//       precision={0.1}
+//       size="small"
+//       name="simple-controlled"
+//       value={value}
+//       onChange={(event, newValue) => {
+//         setValue(newValue);
+//       }}
+//     />
+//   );
+// }
 
 const ProductItem = ({ product, history }) => {
   const classes = useStyles();
@@ -104,8 +106,10 @@ const ProductItem = ({ product, history }) => {
         return m1;
       case "Circles.Life":
         return circles;
-      case "MyRepublic":
+      case "My Republic":
         return myrepublic;
+      case "giga!":
+        return giga;
       default:
         break;
     }
@@ -121,8 +125,10 @@ const ProductItem = ({ product, history }) => {
         return "https://www.m1.com.sg/Mobile";
       case "Circles.Life":
         return "https://www.circles.life/sg/plans/";
-      case "MyRepublic":
-        return "#";
+      case "My Republic":
+        return "https://mobile.myrepublic.com.sg/plans";
+      case "giga!":
+        return "https://www.giga.com.sg/SignUp.aspx"
       default:
         break;
     }
@@ -147,7 +153,7 @@ const ProductItem = ({ product, history }) => {
           </Tooltip>
         }
         title={product.title}
-        subheader={<TelcoRating />}
+        // subheader={<TelcoRating />}
       />
       <CardContent>
         <div className={classes.multi}>
@@ -163,15 +169,28 @@ const ProductItem = ({ product, history }) => {
                 >
                   Data
                 </Typography>
-                <Typography
-                  variant="body2"
-                  color="textSecondary"
-                  component="p"
-                  align="center"
-                  className={classes.bottom}
-                >
-                  {product.data}GB
-                </Typography>
+                {(product.data === 999) 
+                ?
+                    <Typography
+                      variant="body2"
+                      color="textSecondary"
+                      component="p"
+                      align="center"
+                      className={classes.bottom}
+                    >
+                      Unlimited
+                    </Typography>
+                : 
+                    <Typography
+                      variant="body2"
+                      color="textSecondary"
+                      component="p"
+                      align="center"
+                      className={classes.bottom}
+                    >
+                      {product.data}GB
+                    </Typography>
+                } 
               </Paper>
             </Grid>
             <Grid item md={4}>
@@ -214,7 +233,7 @@ const ProductItem = ({ product, history }) => {
                   align="center"
                   className={classes.bottom}
                 >
-                  {product.call_time + "mins"}
+                  {product.call_time} {(product.call_time !== "Unlimited") && "mins"}
                 </Typography>
               </Paper>
             </Grid>
@@ -228,14 +247,24 @@ const ProductItem = ({ product, history }) => {
         >
           ${product.price} <small>per mth</small>
         </Typography>
-        <Typography
-          gutterBottom
-          variant="subtitle1"
-          color="textSecondary"
-          component="h2"
-        >
-          {product.contract_length}
-        </Typography>
+        {(product.contract_length === 0) 
+          ? <Typography
+            gutterBottom
+            variant="subtitle1"
+            color="textSecondary"
+            component="h2"
+          >
+            No Contract
+          </Typography> 
+          : <Typography
+            gutterBottom
+            variant="subtitle1"
+            color="textSecondary"
+            component="h2"
+          >
+            {product.contract_length} Months
+          </Typography>}
+        
       </CardContent>
       <CardActions disableSpacing>
         <IconButton onClick={handleAddToFavProducts} color="secondary">

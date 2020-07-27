@@ -23,7 +23,7 @@ Conversion notes:
 
 ----->
 
-# TelMe**!**
+# TelMe!
 
 The one stop web-app to tell you all about mobile subscription plans in Singapore. 
 
@@ -31,7 +31,7 @@ You may watch our [video](https://drive.google.com/file/d/180Lz7tcdt-3iqGldtkPNn
 
 **Proposed level of achievement: Artemis**
 
-**Motivation **
+**Motivation**
 
 It’s that time of the year again, your Telco subscription is up for renewal and you’re faced with a tough decision, to recontract or to change Telco? A quick google search for the best mobile recontract promotions ends up being a 1 hour search for the best deal possible. You finally decide to recontract with Singtel, but to your dismay, after going through all that hassle, you find out that M1 was offering way more mobile data capacity for lower prices. 
 
@@ -43,7 +43,7 @@ The issue of how fast information can be acquired also comes into play. Sifting 
 
  
 
-**Aim **
+**Aim**
 
 We hope to be able to provide users with a single place where one can view and compare all the different types of Telco subscription plans and promotions. Here, they will be able to find the best available Telco subscription plan, tailor made, according to what they are looking for. 
 
@@ -382,7 +382,7 @@ We hope to be able to provide users with a single place where one can view and c
 </table>
 
 
-**User Stories **
+**User Stories**
 
 Priorities: High (must have) - `***`,  Medium (nice to have) - `**`,  Low (unlikely to have) - `*`
 
@@ -483,17 +483,9 @@ Priorities: High (must have) - `***`,  Medium (nice to have) - `**`,  Low (unlik
 
 
 
-**1. Recommend feature**
+**Recommend feature**
 
-
-
-
-
-
-
-    First we get a list of plans favorited by the requester user.
-
-
+First we get a list of plans favorited by the requester user.
 
 1. Then we obtain the name of the cluster the user belongs to. We do this through the `User.objects.get(..).cluster_set` field that references the user side of the many-to-many relationship we have with clusters. We also exclude the requester user from that list. This is not strictly needed because of what we are going to do next, but might reduce query time.
 2. Then we use the previous list of names to get favorites for those users in the cluster, excluding those favorites referring to the plans we got in step 1. From the result, we get a list of plan IDs.
@@ -501,18 +493,15 @@ Priorities: High (must have) - `***`,  Medium (nice to have) - `**`,  Low (unlik
 
     **Clustering**
 
-
     We used K-means clustering as a machine learning model that made use of user similarity in order to provide better plan recommendations. When a user saves a particular plan into his favorites list, the backend triggers the machine learning model and allocates him to a cluster with users of similar profiles. The backend will then suggest favorited plans of these similar users to the current user. As such, our model will perform better with more user activity.
 
 
     We chose K-means clustering because It is a fast clustering algorithm that has parallel and scalable implementations (e.g. see [Spark](http://spark.apache.org/docs/latest/mllib-clustering.html)). And overall, it is very easy to understand what K-means does and how it works. A user cluster is just a group of users close to each other based on how they favorited plans. 
 
 
-**2. Web Extraction**
+**Web Extraction**
 
-    First, the admin must run the command `heroku run python scrape.py`
-
-
+First, the admin must run the command `heroku run python scrape.py`
 
 1. Then, the scrapers are called using their respective function calls (e.g `add_starhub_products()`, etc)
 2. Scraping is done through the use of both bs4 and Selenium packages. Upon having their function called, the scraper will crawl through the website, extract data and store it in a dictionary.
@@ -521,10 +510,6 @@ Priorities: High (must have) - `***`,  Medium (nice to have) - `**`,  Low (unlik
 5. Axios is then used to fetch the products from our API and these products are mapped to our product template in React to display all the items on the webpage.
 
     As of milestone 3, data was scraped from the websites of Starhub, M1, giga! and My Republic. Data from Singtel was scrapped as well but due issues related to hosting and the packages we used to scrape from Singtel’s website, we are unable to run Singtel’s scraper on the server. Hence, we had to scrape Singtel’s data locally, export it, then import it into the online website’s database. 
-
-
-
-
 
 
 

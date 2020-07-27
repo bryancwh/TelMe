@@ -4,7 +4,11 @@ import autoBind from "auto-bind";
 
 import "../style/carousel.css";
 import m1apple from "@public/images/m1promo.jpg";
-import m1huawei from "@public/images/m1promo2.jpg";
+import m1samsung from "@public/images/m1promo2.jpg";
+import singtel1 from "@public/images/singtelpromo.jpg";
+import singtel2 from "@public/images/singtelpromo2.jpg";
+import pixelstarhub from "@public/images/starhubpromo.jpg";
+import hwstarhub from "@public/images/starhubpromo2.jpg";
 
 import {
   Card,
@@ -31,7 +35,7 @@ function Banner(props) {
 
         <Typography className="Caption">{props.item.Caption}</Typography>
 
-        <Button variant="outlined" className="ViewButton">
+        <Button variant="outlined" className="ViewButton" onClick={() => window.open(props.item.Link, "_blank")}>
           View Now
         </Button>
       </CardContent>
@@ -71,47 +75,50 @@ function Banner(props) {
 
 const items = [
   {
-    Name: "Mobile Plans",
+    Name: "M1 Mobile Plans",
     Caption: "The latest deals!",
+    Link: "https://www.m1.com.sg/Promotions/mobile-device-promotions/0-handset-deals",
     contentPosition: "left",
     Items: [
       {
-        Name: "M1 iPhone 11 Pro Max",
+        Name: "M1 iPhone 11",
         Image: m1apple,
       },
       {
-        Name: "M1 HuaWei nova 7 SE",
-        Image: m1huawei,
+        Name: "M1 Galaxy S20+",
+        Image: m1samsung,
       },
     ],
   },
   {
-    Name: "Home Appliances",
-    Caption: "Say no to manual home labour!",
+    Name: "Singtel Deals",
+    Caption: "Recommended Huawei Phones",
+    Link: "https://www.singtel.com/personal/promotions/monthlyspecials",
     contentPosition: "middle",
     Items: [
       {
-        Name: "Washing Machine WX9102",
-        Image: "https://source.unsplash.com/featured/?washingmachine",
+        Name: "Singtel Huawei P40 Pro 5G",
+        Image: singtel1,
       },
       {
-        Name: "Learus Vacuum Cleaner",
-        Image: "https://source.unsplash.com/featured/?vacuum,cleaner",
+        Name: "Huawei Nova 7 SE 5G",
+        Image: singtel2,
       },
     ],
   },
   {
-    Name: "Decoratives",
-    Caption: "Give style and color to your living room!",
+    Name: "Starhub Deals",
+    Caption: "The latest mobile phones & devices",
+    Link: "https://www.starhub.com/personal/store/mobile/browse.html",
     contentPosition: "right",
     Items: [
       {
-        Name: "Living Room Lamp",
-        Image: "https://source.unsplash.com/featured/?lamp",
+        Name: "Starhub Google Pixel 3 XL",
+        Image: pixelstarhub,
       },
       {
-        Name: "Floral Vase",
-        Image: "https://source.unsplash.com/featured/?vase",
+        Name: "Starhub Huawei P40 Pro",
+        Image: hwstarhub,
       },
     ],
   },

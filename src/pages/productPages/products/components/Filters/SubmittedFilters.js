@@ -62,7 +62,7 @@ const SubmittedFilters = () => {
             size="small"
             variant="outlined"
           >
-            from {min_price}$ to {max_price}$
+            from ${min_price} to ${max_price}
             <CloseIcon fontSize="small" color="action" />
           </Button>
         )}
@@ -75,7 +75,7 @@ const SubmittedFilters = () => {
             size="small"
             variant="outlined"
           >
-            from {min_data}$ to {max_data}$
+            from {min_data}GB to {max_data}GB
             <CloseIcon fontSize="small" color="action" />
           </Button>
         )}
@@ -88,7 +88,7 @@ const SubmittedFilters = () => {
             size="small"
             variant="outlined"
           >
-            from {min_contract}$ to {max_contract}$
+            from {min_contract} mths to {max_contract} mths
             <CloseIcon fontSize="small" color="action" />
           </Button>
         )}

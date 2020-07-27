@@ -5,14 +5,13 @@ import Container from "@material-ui/core/Container";
 import Typography from "@material-ui/core/Typography";
 import Link from "@material-ui/core/Link";
 import GitHubIcon from "@material-ui/icons/GitHub";
-import FacebookIcon from "@material-ui/icons/Facebook";
-import TwitterIcon from "@material-ui/icons/Twitter";
+import IconButton from "@material-ui/core/IconButton";
 
 function Copyright() {
   return (
-    <Typography variant="body2" color="textSecondary" align="left">
+    <Typography variant="body2" color="textSecondary" align="center">
       {"Copyright © "}
-      <Link color="inherit" href="https://material-ui.com/">
+      <Link color="inherit" href="https://tel-me.herokuapp.com">
         TelMe
       </Link>{" "}
       {new Date().getFullYear()}
@@ -31,6 +30,7 @@ const useStyles = makeStyles((theme) => ({
 
 export default function Footer() {
   const classes = useStyles();
+  const github = "https://github.com/BlondeBubblyBryan/TelMe";
 
   return (
     <footer className={classes.footer}>
@@ -46,12 +46,15 @@ export default function Footer() {
         >
           Hello hello hello
         </Typography> */}
-        <Container align="right">
-          <GitHubIcon size="large" />
-          <FacebookIcon size="large" />
-          <TwitterIcon size="large" />
-        </Container>
+          <Container align="center">
+          <IconButton size="medium" onClick={() => window.open(github, "_blank")}>
+            <GitHubIcon/>
+          </IconButton>
+          </Container>
         <Copyright />
+        <Typography variant="body2" color="textSecondary" align="center">
+          An NUS Orbital project by Bryan and Ben.
+        </Typography>
       </Container>
     </footer>
   );

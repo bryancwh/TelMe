@@ -73,7 +73,7 @@ def add_starhub_products():
             data = plan_data.text.replace('GB', '')
             call_time = remove_text_inside_brackets(plan_calltime.text).replace(' outgoing mins', '').replace(',', '').replace(' \xa0', '')
             if plan_sms is not None:
-                sms = plan_sms.text.replace('SMS', '')
+                sms = plan_sms.text.replace('SMS', '').replace(',', '')
             else:
                 sms = 0
             contract_length = contract_lengths[pointer]

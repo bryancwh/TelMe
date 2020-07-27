@@ -69,7 +69,10 @@ class UpdateFavoritesProductsView(APIView):
         else:
             FavoritesProducts.objects.filter(user=request.user, product=product).delete()
 
-        update_clusters()
+        try:
+            update_clusters()
+        except:
+            pass
 
         product = ProductListSerializer(
             product, context={'request': request})

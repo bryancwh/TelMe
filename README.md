@@ -1,7 +1,9 @@
+<!-- Output copied to clipboard! -->
+
 <!-----
 NEW: Check the "Suppress top comment" option to remove this info from the output.
 
-Conversion time: 6.735 seconds.
+Conversion time: 3.595 seconds.
 
 
 Using this Markdown file:
@@ -14,75 +16,22 @@ Using this Markdown file:
 Conversion notes:
 
 * Docs to Markdown version 1.0β29
-* Sun Jul 05 2020 19:37:04 GMT-0700 (PDT)
-* Source doc: Copy of TelMe Documentation
+* Mon Jul 27 2020 03:56:55 GMT-0700 (PDT)
+* Source doc: TelMe Documentation
 * Tables are currently converted to HTML tables.
 * This document has images: check for >>>>>  gd2md-html alert:  inline image link in generated source and store images to your server. NOTE: Images in exported zip file from Google Docs may not appear in  the same order as they do in your doc. Please check the images!
 
 ----->
 
-
-<p style="color: red; font-weight: bold">>>>>>  gd2md-html alert:  ERRORs: 0; WARNINGs: 0; ALERTS: 7.</p>
-<ul style="color: red; font-weight: bold"><li>See top comment block for details on ERRORs and WARNINGs. <li>In the converted Markdown or HTML, search for inline alerts that start with >>>>>  gd2md-html alert:  for specific instances that need correction.</ul>
-
-<p style="color: red; font-weight: bold">Links to alert messages:</p><a href="#gdcalert1">alert1</a>
-<a href="#gdcalert2">alert2</a>
-<a href="#gdcalert3">alert3</a>
-<a href="#gdcalert4">alert4</a>
-<a href="#gdcalert5">alert5</a>
-<a href="#gdcalert6">alert6</a>
-<a href="#gdcalert7">alert7</a>
-
-<p style="color: red; font-weight: bold">>>>>> PLEASE check and correct alert issues and delete this message and the inline alerts.<hr></p>
-
-
-
-# 
-
-<p id="gdcalert1" ><span style="color: red; font-weight: bold">>>>>>  gd2md-html alert: inline image link here (to images/image1.png). Store image on your image server and adjust path/filename/extension if necessary. </span><br>(<a href="#">Back to top</a>)(<a href="#gdcalert2">Next alert</a>)<br><span style="color: red; font-weight: bold">>>>>> </span></p>
-
-
-![alt_text](images/image1.png "image_tooltip")
-
-
-<p id="gdcalert2" ><span style="color: red; font-weight: bold">>>>>>  gd2md-html alert: inline image link here (to images/image2.jpg). Store image on your image server and adjust path/filename/extension if necessary. </span><br>(<a href="#">Back to top</a>)(<a href="#gdcalert3">Next alert</a>)<br><span style="color: red; font-weight: bold">>>>>> </span></p>
-
-
-![alt_text](images/image2.jpg "image_tooltip")
-
-
-<p id="gdcalert3" ><span style="color: red; font-weight: bold">>>>>>  gd2md-html alert: inline image link here (to images/image3.jpg). Store image on your image server and adjust path/filename/extension if necessary. </span><br>(<a href="#">Back to top</a>)(<a href="#gdcalert4">Next alert</a>)<br><span style="color: red; font-weight: bold">>>>>> </span></p>
-
-
-![alt_text](images/image3.jpg "image_tooltip")
-
-
-<p id="gdcalert4" ><span style="color: red; font-weight: bold">>>>>>  gd2md-html alert: inline image link here (to images/image4.png). Store image on your image server and adjust path/filename/extension if necessary. </span><br>(<a href="#">Back to top</a>)(<a href="#gdcalert5">Next alert</a>)<br><span style="color: red; font-weight: bold">>>>>> </span></p>
-
-
-![alt_text](images/image4.png "image_tooltip")
-
-
-
 # TelMe!
 
 The one stop web-app to tell you all about mobile subscription plans in Singapore. 
 
-To view the website, you may watch our video presentation: 
+You may watch our [video](https://drive.google.com/file/d/180Lz7tcdt-3iqGldtkPNnSD71KLTyv_k/view?usp=sharing) presentation or visit the live [website](https://tel-me.herokuapp.com/home).
 
-[Milestone II Video](https://drive.google.com/file/d/1GS-VqKU6-57jd4uLYrHdBjbvmYgaIESQ/view?usp=sharing)
+**Proposed level of achievement: Artemis**
 
-
-
-<p id="gdcalert5" ><span style="color: red; font-weight: bold">>>>>>  gd2md-html alert: inline image link here (to images/image5.png). Store image on your image server and adjust path/filename/extension if necessary. </span><br>(<a href="#">Back to top</a>)(<a href="#gdcalert6">Next alert</a>)<br><span style="color: red; font-weight: bold">>>>>> </span></p>
-
-
-![alt_text](images/image5.png "image_tooltip")
-
-
-**Proposed level of achievement: Apollo 11**
-
-**Motivation **
+**Motivation**
 
 It’s that time of the year again, your Telco subscription is up for renewal and you’re faced with a tough decision, to recontract or to change Telco? A quick google search for the best mobile recontract promotions ends up being a 1 hour search for the best deal possible. You finally decide to recontract with Singtel, but to your dismay, after going through all that hassle, you find out that M1 was offering way more mobile data capacity for lower prices. 
 
@@ -94,7 +43,7 @@ The issue of how fast information can be acquired also comes into play. Sifting 
 
  
 
-**Aim **
+**Aim**
 
 We hope to be able to provide users with a single place where one can view and compare all the different types of Telco subscription plans and promotions. Here, they will be able to find the best available Telco subscription plan, tailor made, according to what they are looking for. 
 
@@ -115,7 +64,7 @@ We hope to be able to provide users with a single place where one can view and c
    </td>
    <td>Web Scraper
    </td>
-   <td>To populate the database with products extracted from each individual telco site. More scrapers will be introduced in milestone 3.
+   <td>To populate the database with products extracted from each individual telco site. 
    </td>
   </tr>
   <tr>
@@ -123,7 +72,39 @@ We hope to be able to provide users with a single place where one can view and c
    </td>
    <td>Starhub Scraper
    </td>
-   <td>Scrapes data from starhub's web page.
+   <td>Scrapes data from Starhub's web page.
+   </td>
+  </tr>
+  <tr>
+   <td>1.2
+   </td>
+   <td>Singtel Scraper
+   </td>
+   <td>Scrapes data from Singtel’s web page.
+   </td>
+  </tr>
+  <tr>
+   <td>1.3
+   </td>
+   <td>M1 Scraper
+   </td>
+   <td>Scrapes data from M1’s web page.
+   </td>
+  </tr>
+  <tr>
+   <td>1.4
+   </td>
+   <td>My Republic Scraper
+   </td>
+   <td>Scrapes data from My Republic’s web page.
+   </td>
+  </tr>
+  <tr>
+   <td>1.5
+   </td>
+   <td>giga! Scraper
+   </td>
+   <td>Scrapes data from giga!’s web page.
    </td>
   </tr>
   <tr>
@@ -147,7 +128,7 @@ We hope to be able to provide users with a single place where one can view and c
    </td>
    <td>Featured
    </td>
-   <td>Users will be able to see what popular promotions are available.
+   <td>Users will be able to see what popular promotions are available. As of the end of Orbital, the features items are hard-coded in. Given time, this feature could be done through scraping.
    </td>
   </tr>
   <tr>
@@ -155,7 +136,7 @@ We hope to be able to provide users with a single place where one can view and c
    </td>
    <td>Trending topics
    </td>
-   <td>Users will be able to view articles related to telco discussion and reviews that users have posted on our website.
+   <td>Users will be able to view articles related to telco discussion and reviews that users have posted on our website. As of the end of Orbital, the features items are hard-coded in. Given time, this feature could be done through scraping.
    </td>
   </tr>
   <tr>
@@ -171,7 +152,7 @@ We hope to be able to provide users with a single place where one can view and c
    </td>
    <td>Add to favorites button
    </td>
-   <td>A button where customers can add a product to their favorite products..
+   <td>A button where customers can add a product to their favorite products.
    </td>
   </tr>
   <tr>
@@ -201,25 +182,9 @@ We hope to be able to provide users with a single place where one can view and c
   <tr>
    <td>4.2.3
    </td>
-   <td>Telecom
-   </td>
-   <td>Users will be able to search for plans for the telcos they want (e.g Singtel, Starhub, M1, etc.) will be implemented in milestone 3
-   </td>
-  </tr>
-  <tr>
-   <td>4.2.4
-   </td>
-   <td>Contract Length
+   <td>Contract Length Range
    </td>
    <td>Users will be able to search for plans with a specific contract length (e.g 1 year, 2 years, no contract, etc.)
-   </td>
-  </tr>
-  <tr>
-   <td>4.2.5
-   </td>
-   <td>Payment-type
-   </td>
-   <td>Users will be able to search for plans with a specific payment type (e.g sim-only or contracted). Will be implemented in milestone 3
    </td>
   </tr>
   <tr>
@@ -259,7 +224,7 @@ We hope to be able to provide users with a single place where one can view and c
    </td>
    <td>Search in results
    </td>
-   <td>Users can search for any product on the products page after filtering 
+   <td>Users can search for any product on the products page after filtering or ordering.
    </td>
   </tr>
   <tr>
@@ -308,6 +273,14 @@ We hope to be able to provide users with a single place where one can view and c
    <td>Modify/add review and comment data
    </td>
    <td>Admins will be able to monitor the reviews and comments section, remove and flag out comments that do not adhere to the site’s code of conduct. 
+   </td>
+  </tr>
+  <tr>
+   <td>5.4
+   </td>
+   <td>Import/Export Data
+   </td>
+   <td>Through a django package, admins will be able to download any data on the site into many different file types with .csv and excel being one of them.
    </td>
   </tr>
   <tr>
@@ -409,9 +382,7 @@ We hope to be able to provide users with a single place where one can view and c
 </table>
 
 
-
-
-**User Stories **
+**User Stories**
 
 Priorities: High (must have) - `***`,  Medium (nice to have) - `**`,  Low (unlikely to have) - `*`
 
@@ -484,7 +455,7 @@ Priorities: High (must have) - `***`,  Medium (nice to have) - `**`,  Low (unlik
    </td>
    <td>Be able to moderate user accounts on my site.
    </td>
-   <td>Identify and flag out users who violate code of conduct, and remove thm.
+   <td>Identify and flag out users who violate code of conduct, and remove them.
    </td>
   </tr>
   <tr>
@@ -507,62 +478,134 @@ Priorities: High (must have) - `***`,  Medium (nice to have) - `**`,  Low (unlik
    <td>Avoid scrolling through old plans to try to find the new ones.
    </td>
   </tr>
+</table>
+
+
+
+
+**Recommend feature**
+
+First we get a list of plans favorited by the requester user.
+
+1. Then we obtain the name of the cluster the user belongs to. We do this through the `User.objects.get(..).cluster_set` field that references the user side of the many-to-many relationship we have with clusters. We also exclude the requester user from that list. This is not strictly needed because of what we are going to do next, but might reduce query time.
+2. Then we use the previous list of names to get favorites for those users in the cluster, excluding those favorites referring to the plans we got in step 1. From the result, we get a list of plan IDs.
+3. Finally, we use the previous list of IDs to retrieve all the recommended plans.
+
+    **Clustering**
+
+    We used K-means clustering as a machine learning model that made use of user similarity in order to provide better plan recommendations. When a user saves a particular plan into his favorites list, the backend triggers the machine learning model and allocates him to a cluster with users of similar profiles. The backend will then suggest favorited plans of these similar users to the current user. As such, our model will perform better with more user activity.
+
+
+    We chose K-means clustering because It is a fast clustering algorithm that has parallel and scalable implementations (e.g. see [Spark](http://spark.apache.org/docs/latest/mllib-clustering.html)). And overall, it is very easy to understand what K-means does and how it works. A user cluster is just a group of users close to each other based on how they favorited plans. 
+
+
+**Web Extraction**
+
+First, the admin must run the command `heroku run python scrape.py`
+
+1. Then, the scrapers are called using their respective function calls (e.g `add_starhub_products()`, etc)
+2. Scraping is done through the use of both bs4 and Selenium packages. Upon having their function called, the scraper will crawl through the website, extract data and store it in a dictionary.
+3. Upon completion of all the scrapers, all of the data scraped is pipelined into `add_products.py` where we can add all the products and run validators on them.
+4. A filter is run on the existing models in the database. If a product with the same title already exists, the product is not added. Otherwise, `Product.objects.create()` is used to make the model object and `product.save()` is used to save the object in the database.
+5. Axios is then used to fetch the products from our API and these products are mapped to our product template in React to display all the items on the webpage.
+
+    As of milestone 3, data was scraped from the websites of Starhub, M1, giga! and My Republic. Data from Singtel was scrapped as well but due issues related to hosting and the packages we used to scrape from Singtel’s website, we are unable to run Singtel’s scraper on the server. Hence, we had to scrape Singtel’s data locally, export it, then import it into the online website’s database. 
+
+
+
+**Deployment to Production** \
+To deploy our web application, we chose to deploy with Heroku because it provides an ecosystem of cloud services, which can be used to instantly extend our application with fully-managed services. 
+
+
+
+1. **Server**
+
+    Integration with Heroku requires a Procfile file which is used to explicitly declare our application’s process types and entry points. It is located in the root of our repository. This Procfile requires Gunicorn, the production web server.
+
+
+ \
+	`web: gunicorn myproject.wsgi`
+
+
+
+2. **Database**
+
+    For our local database, the web application uses SQLite, but because Heroku provides its applications with a Postgresql database, a seperate database connection unique to production was created in `settings.py`
+
+
+    ```
+    import dj_database_url
+    db_from_env = dj_database_url.config(conn_max_age=600)
+    DATABASES['default'].update(db_from_env)
+
+    ```
+
+
+**Testing**
+
+
+<table>
   <tr>
-   <td>*
+   <td>
    </td>
-   <td>User
+   <td>Problem
    </td>
-   <td>Be able to compare two plans side by side.
-   </td>
-   <td>Easily compare two plans without opening two windows.
+   <td>Solution
    </td>
   </tr>
   <tr>
-   <td>*
+   <td rowspan="3" >Frontend
    </td>
-   <td>User
+   <td><strong>Range for filter includes either “Unlimited” or “No Contract”</strong>
    </td>
-   <td>Be able to view real reviews on the plan.
+   <td>When scraping, upon encountering unlimited, it is registered as “999” while No Contract is registered as “0”. Conditionals are then used in the frontend code to display “Unlimited” upon encountering “999” and “No contract” on “0” This way, the filter can work without any issues.
    </td>
-   <td>Make a more informed decision when choosing.
+  </tr>
+  <tr>
+   <td><strong>No recommended or favorite products</strong>
+   </td>
+   <td>Query database for any recommended or favorited products. If none, show a string stating that there are no products.
+   </td>
+  </tr>
+  <tr>
+   <td><strong>Search function cancels out filters</strong>
+   </td>
+   <td>Implement search in results
+   </td>
+  </tr>
+  <tr>
+   <td rowspan="3" >Backend
+   </td>
+   <td><strong>Account Registration</strong>
+   </td>
+   <td><strong>Email</strong>: \
+The application uses an email Regex Validator to check if email keyed in by the user is valid. 
+<p>
+<strong>Password:</strong>
+<p>
+The application checks if the user has keyed in a password of at least 8 characters.
+<p>
+<strong>New Passwords: </strong>
+<p>
+The application returns “Wrong Password” if the user has entered an old password wrongly. 
+   </td>
+  </tr>
+  <tr>
+   <td><strong>Machine Learning & Clustering</strong>
+   </td>
+   <td>A test was carried out in the project video. 
+   </td>
+  </tr>
+  <tr>
+   <td><strong>Web-scraper</strong>
+   </td>
+   <td>When scraping and creating models, if a plan exists, change price of existing model if price dropped, else, do nothing.
+<p>
+If a field is missing, a default value is used.
    </td>
   </tr>
 </table>
 
-
-**Program flow**
-
-
-
-<p id="gdcalert6" ><span style="color: red; font-weight: bold">>>>>>  gd2md-html alert: inline image link here (to images/image6.png). Store image on your image server and adjust path/filename/extension if necessary. </span><br>(<a href="#">Back to top</a>)(<a href="#gdcalert7">Next alert</a>)<br><span style="color: red; font-weight: bold">>>>>> </span></p>
-
-
-![alt_text](images/image6.png "image_tooltip")
-
-
-**UML Diagram**
-
-
-
-<p id="gdcalert7" ><span style="color: red; font-weight: bold">>>>>>  gd2md-html alert: inline image link here (to images/image7.png). Store image on your image server and adjust path/filename/extension if necessary. </span><br>(<a href="#">Back to top</a>)(<a href="#gdcalert8">Next alert</a>)<br><span style="color: red; font-weight: bold">>>>>> </span></p>
-
-
-![alt_text](images/image7.png "image_tooltip")
-
-
-
-
-**Recommending Plans**
-
-We used K-means clustering as a machine learning model that made use of user similarity in order to provide better plan recommendations. When a user saves a particular plan into his favorites list, the backend triggers the machine learning model and allocates him to a cluster with users of similar profiles. The backend will then suggest favorited plans of these similar users to the current user. As such, our model will perform better with more user activity.
-
-We chose K-means clustering because It is a fast clustering algorithm that has parallel and scalable implementations (e.g. see [Spark](http://spark.apache.org/docs/latest/mllib-clustering.html)). And overall, it is very easy to understand what K-means does and how it works. A user cluster is just a group of users close to each other based on how they favorited plans. 
-
-**Web Extraction**
-
-As of milestone 2 we have managed to come up with a basic web scraper that scrapes plans from starhub's website. Beautiful soup was used to crawl through the html of the webpage and the data was pipelined into the django product model we created to populate our database. As of now, the scraper is run manually using the command ‘python starhubscraper.py’.
-
-For milestone 3, we plan to explore dynamic web page web scraping and scrape data from all telco websites to provide a robust variety of different telco plans to our database. We also plan to automate the scraping process once we host our website online.
 
 **Some Notable Libraries Used**
 
@@ -591,7 +634,7 @@ For milestone 3, we plan to explore dynamic web page web scraping and scrape dat
    </td>
   </tr>
   <tr>
-   <td>Beautiful Soup 4
+   <td>Beautiful Soup 4 / Selenium
    </td>
    <td>Aids in the extraction of data from websites to populate the project database
    </td>
@@ -676,11 +719,7 @@ For milestone 3, we plan to explore dynamic web page web scraping and scrape dat
 <p>
 Allow users to be notified about price reduction in deals that they have previously indicated “Notify Me!”
 <p>
-2. Host website.
-<p>
-3. Implement “Compare” feature. Allow users to compare 2 deals side by side
-<p>
-4. Allow users to post reviews on products.
+2. Host website on Heroku.
    </td>
   </tr>
 </table>

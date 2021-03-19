@@ -19,7 +19,7 @@ django-import-export==2.3.0
 django-livereload-server==0.3.2
 django-recommends==1.0.0
 django-rest-passwordreset==1.1.0
-djangorestframework==3.10.1
+djangorestframework==3.11.2
 et-xmlfile==1.0.1
 future==0.18.2
 gunicorn==19.9.0
